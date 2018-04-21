@@ -5,9 +5,9 @@
   
   <link href="/atom.xml" rel="self"/>
   
-  <link href="https://hezizi.github.io/"/>
+  <link href="http://yucihent.top/"/>
   <updated>2018-04-20T07:32:54.895Z</updated>
-  <id>https://hezizi.github.io/</id>
+  <id>http://yucihent.top/</id>
   
   <author>
     <name>Yucihent</name>
@@ -18,8 +18,8 @@
   
   <entry>
     <title>深入javascript之作用域</title>
-    <link href="https://hezizi.github.io/2018/04/20/%E6%B7%B1%E5%85%A5JavaScript%E4%B9%8B%E4%BD%9C%E7%94%A8%E5%9F%9F/"/>
-    <id>https://hezizi.github.io/2018/04/20/深入JavaScript之作用域/</id>
+    <link href="http://yucihent.top/2018/04/20/%E6%B7%B1%E5%85%A5JavaScript%E4%B9%8B%E4%BD%9C%E7%94%A8%E5%9F%9F/"/>
+    <id>http://yucihent.top/2018/04/20/深入JavaScript之作用域/</id>
     <published>2018-04-19T23:35:36.000Z</published>
     <updated>2018-04-20T07:32:54.895Z</updated>
     
@@ -32,17 +32,17 @@
     
     </summary>
     
-      <category term="JavaScript" scheme="https://hezizi.github.io/categories/JavaScript/"/>
+      <category term="JavaScript" scheme="http://yucihent.top/categories/JavaScript/"/>
     
     
-      <category term="JavaScript" scheme="https://hezizi.github.io/tags/JavaScript/"/>
+      <category term="JavaScript" scheme="http://yucihent.top/tags/JavaScript/"/>
     
   </entry>
   
   <entry>
     <title>深入javascript之原型和原型链</title>
-    <link href="https://hezizi.github.io/2018/04/19/%E6%B7%B1%E5%85%A5javascript%E4%B9%8B%E5%8E%9F%E5%9E%8B%E5%92%8C%E5%8E%9F%E5%9E%8B%E9%93%BE/"/>
-    <id>https://hezizi.github.io/2018/04/19/深入javascript之原型和原型链/</id>
+    <link href="http://yucihent.top/2018/04/19/%E6%B7%B1%E5%85%A5javascript%E4%B9%8B%E5%8E%9F%E5%9E%8B%E5%92%8C%E5%8E%9F%E5%9E%8B%E9%93%BE/"/>
+    <id>http://yucihent.top/2018/04/19/深入javascript之原型和原型链/</id>
     <published>2018-04-19T13:22:27.000Z</published>
     <updated>2018-04-20T07:32:49.502Z</updated>
     
@@ -55,14 +55,14 @@
     
     </summary>
     
-      <category term="JavaScript" scheme="https://hezizi.github.io/categories/JavaScript/"/>
+      <category term="JavaScript" scheme="http://yucihent.top/categories/JavaScript/"/>
     
     
-      <category term="JavaScript" scheme="https://hezizi.github.io/tags/JavaScript/"/>
+      <category term="JavaScript" scheme="http://yucihent.top/tags/JavaScript/"/>
     
-      <category term="原型" scheme="https://hezizi.github.io/tags/%E5%8E%9F%E5%9E%8B/"/>
+      <category term="原型" scheme="http://yucihent.top/tags/%E5%8E%9F%E5%9E%8B/"/>
     
-      <category term="原型链" scheme="https://hezizi.github.io/tags/%E5%8E%9F%E5%9E%8B%E9%93%BE/"/>
+      <category term="原型链" scheme="http://yucihent.top/tags/%E5%8E%9F%E5%9E%8B%E9%93%BE/"/>
     
   </entry>
   
