@@ -5,7 +5,7 @@
   
 
 
-<html class="theme-next mist use-motion" lang="">
+<html class="theme-next mist use-motion" lang="zh-Hans">
 <head>
   <meta charset="UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -59,7 +59,7 @@
   <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-yuci-32x32.png?v=5.1.4">
 
 
-  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-yuci-16x16.png?v=5.1.4">
 
 
   <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
@@ -68,28 +68,31 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="JavaScript," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="Yucihent's Blog" type="application/atom+xml" />
 
 
 
 
 
 
-
-
-
-
-<meta name="description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick">
+<meta name="description" content="一，作用域包括静态作用域和动态作用域，静态作用域也叫词法作用域，JavaScript采用的是静态作用域。 JavaScript中作用域是指可访问变量，对象，函数的集合，也就是调用它们能生效的代码区块。在JavaScript中没有块级作用域，只有全局作用域和函数作用域，可以模仿块级作用域，下面会讲到。">
+<meta name="keywords" content="JavaScript">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Hello World">
-<meta property="og:url" content="https://hezizi.github.io/2018/04/21/hello-world/index.html">
+<meta property="og:title" content="深入javascript之作用域">
+<meta property="og:url" content="https://hezizi.github.io/2018/04/20/深入JavaScript之作用域/index.html">
 <meta property="og:site_name" content="Yucihent&#39;s Blog">
-<meta property="og:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick">
-<meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-04-21T10:31:07.222Z">
+<meta property="og:description" content="一，作用域包括静态作用域和动态作用域，静态作用域也叫词法作用域，JavaScript采用的是静态作用域。 JavaScript中作用域是指可访问变量，对象，函数的集合，也就是调用它们能生效的代码区块。在JavaScript中没有块级作用域，只有全局作用域和函数作用域，可以模仿块级作用域，下面会讲到。">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2018-04-20T07:32:54.895Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hello World">
-<meta name="twitter:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick">
+<meta name="twitter:title" content="深入javascript之作用域">
+<meta name="twitter:description" content="一，作用域包括静态作用域和动态作用域，静态作用域也叫词法作用域，JavaScript采用的是静态作用域。 JavaScript中作用域是指可访问变量，对象，函数的集合，也就是调用它们能生效的代码区块。在JavaScript中没有块级作用域，只有全局作用域和函数作用域，可以模仿块级作用域，下面会讲到。">
 
 
 
@@ -105,7 +108,7 @@
     motion: {"enable":true,"async":false,"transition":{"post_block":"expandIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"expandIn"}},
     duoshuo: {
       userId: '0',
-      author: 'Author'
+      author: '博主'
     },
     algolia: {
       applicationID: '',
@@ -119,13 +122,13 @@
 
 
 
-  <link rel="canonical" href="https://hezizi.github.io/2018/04/21/hello-world/"/>
+  <link rel="canonical" href="https://hezizi.github.io/2018/04/20/深入JavaScript之作用域/"/>
 
 
 
 
 
-  <title>Hello World | Yucihent's Blog</title>
+  <title>深入javascript之作用域 | Yucihent's Blog</title>
   
 
 
@@ -147,7 +150,7 @@
 
 </head>
 
-<body itemscope itemtype="http://schema.org/WebPage" lang="default">
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
 
   
   
@@ -195,7 +198,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
             
-            Home
+            首页
           </a>
         </li>
       
@@ -205,7 +208,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
             
-            About
+            关于
           </a>
         </li>
       
@@ -215,7 +218,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
             
-            Tags
+            标签
           </a>
         </li>
       
@@ -225,7 +228,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
             
-            Archives
+            归档
           </a>
         </li>
       
@@ -235,7 +238,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
             
-            Categories
+            分类
           </a>
         </li>
       
@@ -248,7 +251,7 @@
             
               <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
             
-            Search
+            搜索
           </a>
         </li>
       
@@ -268,7 +271,7 @@
     </span>
     <div class="local-search-input-wrapper">
       <input autocomplete="off"
-             placeholder="Searching..." spellcheck="false"
+             placeholder="搜索..." spellcheck="false"
              type="text" id="local-search-input">
     </div>
   </div>
@@ -306,7 +309,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://hezizi.github.io/2018/04/21/hello-world/">
+    <link itemprop="mainEntityOfPage" href="https://hezizi.github.io/2018/04/20/深入JavaScript之作用域/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Yucihent">
@@ -323,7 +326,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Hello World</h1>
+          <h1 class="post-title" itemprop="name headline">深入javascript之作用域</h1>
         
 
         <div class="post-meta">
@@ -333,10 +336,10 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posted on</span>
+                <span class="post-meta-item-text">发表于</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-04-21T18:31:07+08:00">
-                2018-04-21
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-04-20T07:35:36+08:00">
+                2018-04-20
               </time>
             
 
@@ -346,6 +349,28 @@
           </span>
 
           
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/JavaScript/" itemprop="url" rel="index">
+                    <span itemprop="name">JavaScript</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
 
           
             
@@ -353,13 +378,13 @@
 
           
           
-             <span id="/2018/04/21/hello-world/" class="leancloud_visitors" data-flag-title="Hello World">
+             <span id="/2018/04/20/深入JavaScript之作用域/" class="leancloud_visitors" data-flag-title="深入javascript之作用域">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
                </span>
                
-                 <span class="post-meta-item-text">Visitors&#58;</span>
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
                
                  <span class="leancloud-visitors-count"></span>
              </span>
@@ -384,15 +409,20 @@
       
 
       
-        <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>
+        <h2 id="一，作用域"><a href="#一，作用域" class="headerlink" title="一，作用域"></a>一，作用域</h2><p>包括静态作用域和动态作用域，静态作用域也叫词法作用域，JavaScript采用的是静态作用域。</p>
+<p>JavaScript中作用域是指可访问变量，对象，函数的集合，也就是调用它们能生效的代码区块。在JavaScript中没有块级作用域，只有全局作用域和函数作用域，可以模仿块级作用域，下面会讲到。</p>
+<a id="more"></a>
+<h3 id="全局，函数作用域"><a href="#全局，函数作用域" class="headerlink" title="全局，函数作用域"></a>全局，函数作用域</h3><p>看个简单的例子<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a = <span class="number">10</span>  </span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">f1</span>(<span class="params"></span>)</span>&#123;  </span><br><span class="line">    <span class="keyword">var</span> b = c = <span class="number">20</span>;  </span><br><span class="line">    <span class="built_in">console</span>.log(a);     <span class="comment">//10  </span></span><br><span class="line">    <span class="built_in">console</span>.log(c);     <span class="comment">//20  </span></span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">f2</span>(<span class="params"></span>) </span>&#123;  </span><br><span class="line">       <span class="built_in">console</span>.log(b); <span class="comment">//20  </span></span><br><span class="line">    &#125;f2();  </span><br><span class="line">&#125;  </span><br><span class="line">f1();  </span><br><span class="line"><span class="built_in">console</span>.log(a);     <span class="comment">//10  </span></span><br><span class="line"><span class="built_in">console</span>.log(c);     <span class="comment">//20  </span></span><br><span class="line"><span class="built_in">console</span>.log(b);     <span class="comment">//error</span></span><br></pre></td></tr></table></figure></p>
+<p>var b = c = 20  是指 var b = c; c = 20<br>在f1函数中c没使用var声明为全局变量，b为局部变量，绑定在f1函数下，外部访问不到。</p>
+<h3 id="模仿块级作用域"><a href="#模仿块级作用域" class="headerlink" title="模仿块级作用域"></a>模仿块级作用域</h3><p>没有块级作用域，但是有if()，for()等块语句，<strong>在块语句内部定义的变量会保留在它们已经存在的作用域内</strong>，举个栗子：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span>(<span class="literal">true</span>) &#123;  </span><br><span class="line">    <span class="keyword">var</span> word = <span class="string">'hello'</span>;  </span><br><span class="line">    <span class="built_in">console</span>.log(word);  <span class="comment">//hello  </span></span><br><span class="line">&#125;  </span><br><span class="line"><span class="built_in">console</span>.log(word);      <span class="comment">//hello</span></span><br></pre></td></tr></table></figure></p>
+<p>f()语句存在全局作用域下，所以内部定义的变量存在于全局作用域中，无论在哪都可以访问。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">add</span>(<span class="params">num</span>) </span>&#123;  </span><br><span class="line">    <span class="keyword">if</span>(num &gt; <span class="number">10</span>) &#123;  </span><br><span class="line">        <span class="keyword">var</span> num = <span class="number">10</span>;  </span><br><span class="line">        <span class="built_in">console</span>.log(num);   <span class="comment">//10  </span></span><br><span class="line">    &#125;  </span><br><span class="line">    <span class="built_in">console</span>.log(num);       <span class="comment">//10  </span></span><br><span class="line">&#125;  </span><br><span class="line">add(<span class="number">11</span>);  </span><br><span class="line"><span class="built_in">console</span>.log(num);   <span class="comment">//Uncaught ReferenceError: num is not defined</span></span><br></pre></td></tr></table></figure>
+<p>此时if()在add函数中，内部定义的变量存在于add函数的作用域中，只有在函数和块语句中才可以访问到，外部无法访问。</p>
+<p> <strong>使用自执行的匿名函数包裹块语句构建块作用域，也叫私有作用域</strong><br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">add</span>(<span class="params">num</span>) </span>&#123;  </span><br><span class="line">     <span class="keyword">for</span>(<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; num; i++) &#123;  </span><br><span class="line">        <span class="built_in">console</span>.log(i);     <span class="comment">//0,1,2,3,4,5,6,7,8,9  </span></span><br><span class="line">     &#125;  </span><br><span class="line">     <span class="built_in">console</span>.log(i);        <span class="comment">//10  </span></span><br><span class="line">   &#125;  </span><br><span class="line"> add(<span class="number">10</span>);</span><br></pre></td></tr></table></figure></p>
+<p>将代码改为：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">add</span>(<span class="params">num</span>) </span>&#123;  </span><br><span class="line">    (<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;  </span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; num; i++) &#123;  </span><br><span class="line">           <span class="built_in">console</span>.log(i);  <span class="comment">//0,1,2,3,4,5,6,7,8,9  </span></span><br><span class="line">        &#125;  </span><br><span class="line">    &#125;)()  </span><br><span class="line">   <span class="built_in">console</span>.log(i);      <span class="comment">//Uncaught ReferenceError: i is not defined  </span></span><br><span class="line">&#125;  </span><br><span class="line">add(<span class="number">10</span>);</span><br></pre></td></tr></table></figure></p>
+<p>此时变量i只能在for()循环中访问到，在add函数和外部都无法访问，并且在匿名函数中定义的任何变量都会在执行结束时被销毁，所以变量i只能在for()循环中使用。</p>
+<p>在ES6中新增了块级作用域，let const声明的变量在块语句中声明时，外部无法访问。</p>
+<p>对作用域有明确的理解对于后面学习执行上下文会有很大帮助。</p>
 
       
     </div>
@@ -408,16 +438,16 @@
       <div>
         <ul class="post-copyright">
   <li class="post-copyright-author">
-    <strong>Post author:</strong>
+    <strong>本文作者：</strong>
     Yucihent
   </li>
   <li class="post-copyright-link">
-    <strong>Post link:</strong>
-    <a href="https://hezizi.github.io/2018/04/21/hello-world/" title="Hello World">https://hezizi.github.io/2018/04/21/hello-world/</a>
+    <strong>本文链接：</strong>
+    <a href="https://hezizi.github.io/2018/04/20/深入JavaScript之作用域/" title="深入javascript之作用域">https://hezizi.github.io/2018/04/20/深入JavaScript之作用域/</a>
   </li>
   <li class="post-copyright-license">
-    <strong>Copyright Notice: </strong>
-    All articles in this blog are licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 3.0</a> unless stating additionally.
+    <strong>版权声明： </strong>
+    本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 3.0</a> 许可协议。转载请注明出处！
   </li>
 </ul>
 
@@ -426,11 +456,33 @@
 
     <footer class="post-footer">
       
+        <div class="post-tags">
+          
+            <a href="/tags/JavaScript/" rel="tag"># JavaScript</a>
+          
+        </div>
+      
 
       
       
       
 
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/04/19/深入javascript之原型和原型链/" rel="next" title="深入javascript之原型和原型链">
+                <i class="fa fa-chevron-left"></i> 深入javascript之原型和原型链
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
       
 
       
@@ -481,10 +533,10 @@
       
         <ul class="sidebar-nav motion-element">
           <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
-            Table of Contents
+            文章目录
           </li>
           <li class="sidebar-nav-overview" data-target="site-overview-wrap">
-            Overview
+            站点概览
           </li>
         </ul>
       
@@ -498,7 +550,7 @@
                 alt="Yucihent" />
             
               <p class="site-author-name" itemprop="name">Yucihent</p>
-              <p class="site-description motion-element" itemprop="description"></p>
+              <p class="site-description motion-element" itemprop="description">不断探索才会发现更多新事物</p>
           </div>
 
           <nav class="site-state motion-element">
@@ -508,18 +560,43 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">1</span>
-                  <span class="site-state-item-name">posts</span>
+                  <span class="site-state-item-count">2</span>
+                  <span class="site-state-item-name">日志</span>
                 </a>
               </div>
             
 
             
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">1</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
 
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
             
 
           </nav>
 
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
           
 
           
@@ -579,7 +656,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Quick-Start"><span class="nav-number">1.</span> <span class="nav-text">Quick Start</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Create-a-new-post"><span class="nav-number">1.1.</span> <span class="nav-text">Create a new post</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Run-server"><span class="nav-number">1.2.</span> <span class="nav-text">Run server</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Generate-static-files"><span class="nav-number">1.3.</span> <span class="nav-text">Generate static files</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Deploy-to-remote-sites"><span class="nav-number">1.4.</span> <span class="nav-text">Deploy to remote sites</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#一，作用域"><span class="nav-number">1.</span> <span class="nav-text">一，作用域</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#全局，函数作用域"><span class="nav-number">1.1.</span> <span class="nav-text">全局，函数作用域</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#模仿块级作用域"><span class="nav-number">1.2.</span> <span class="nav-text">模仿块级作用域</span></a></li></ol></li></ol></div>
             
 
           </div>
@@ -609,7 +686,7 @@
 </div>
 
 
-  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
 
 
 
@@ -617,7 +694,7 @@
 
 
 
-  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Mist</a></div>
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Mist</a></div>
 
 
 
