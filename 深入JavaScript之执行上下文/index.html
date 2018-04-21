@@ -91,7 +91,7 @@
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://user-gold-cdn.xitu.io/2018/4/3/1628989f46f94209?w=780&h=520&f=png&s=17411">
 <meta property="og:image" content="https://user-gold-cdn.xitu.io/2018/4/3/1628989f46f94209?w=780&h=520&f=png&s=17411">
-<meta property="og:updated_time" content="2018-04-21T12:55:15.342Z">
+<meta property="og:updated_time" content="2018-04-21T12:57:13.252Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="深入javascript之执行上下文">
 <meta name="twitter:description" content="一，相关概念 EC : 执行上下文   ECS : 执行环境栈   VO ： 变量对象   AO ： 活动对象   scope chain ：作用域链">
@@ -512,14 +512,10 @@
 <h2 id="四，变量提升"><a href="#四，变量提升" class="headerlink" title="四，变量提升"></a>四，变量提升</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params"></span>) </span>&#123;  </span><br><span class="line">    <span class="built_in">console</span>.log(f1);    <span class="comment">//f1() &#123;&#125;  </span></span><br><span class="line">    <span class="built_in">console</span>.log(f2);    <span class="comment">//undefined  </span></span><br><span class="line">    <span class="keyword">var</span> f1 = <span class="string">'hosting'</span>;  </span><br><span class="line">    <span class="keyword">var</span> f2 = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;&#125;  </span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">f1</span>(<span class="params"></span>) </span>&#123;&#125;  </span><br><span class="line">&#125;  </span><br><span class="line">foo();</span><br></pre></td></tr></table></figure>
 <p><strong>调用foo()时会创建VO，初始VO中变量值等有一系列的过程，所有变量初始化值为undefined，所以console.log(f2)的值为undefined。并且函数申明先于变量申明，所以console.log(f1)的值为f1()函数而不为hosting</strong></p>
 <h2 id="五，总结"><a href="#五，总结" class="headerlink" title="五，总结"></a>五，总结</h2><ul>
-<li><p>调用函数时会为其创建执行上下文，并压入执行环境栈的栈顶，执行完毕弹出，执行上下文被销毁，随之VO也被销毁</p>
-</li>
-<li><p>EC创建阶段分创建阶段和代码执行阶段</p>
-</li>
-<li><p>创建阶段初始变量值为undefined，执行阶段才为变量赋值</p>
-</li>
-<li><p>函数申明先于变量申明</p>
-</li>
+<li>调用函数时会为其创建执行上下文，并压入执行环境栈的栈顶，执行完毕弹出，执行上下文被销毁，随之VO也被销毁</li>
+<li>EC创建阶段分创建阶段和代码执行阶段</li>
+<li>创建阶段初始变量值为undefined，执行阶段才为变量赋值</li>
+<li>函数申明先于变量申明</li>
 </ul>
 
       
