@@ -81,18 +81,18 @@
 
 
 
-<meta name="description" content="此文主旨是记录面试中遇到的面试题，包括js中常见，易错，重要知识点  window.onload和$(document).ready()的区别window.onload是在页面中包含图片在内的所有元素全部加载完成再执行； $(document).ready()是DOM树加载完成之后执行，不包含图片，其他媒体文件； 因此$(document).ready()快于window.onload执行； 数">
+<meta name="description" content="此文主旨是记录面试中遇到的面试题，包括js中常见，易错，重要知识点  window.onload和$(document).ready()的区别window.onload是在页面中包含图片在内的所有元素全部加载完成再执行； $(document).ready()是DOM树加载完成之后执行，不包含图片，其他媒体文件； 因此$(document).ready()快于window.onload执行；">
 <meta name="keywords" content="JavaScript,经验总结">
 <meta property="og:type" content="article">
 <meta property="og:title" content="经验总结之JavaScript篇(一)">
 <meta property="og:url" content="http://yucihent.top/javascript-report-1.html">
 <meta property="og:site_name" content="Yucihent&#39;s Blog">
-<meta property="og:description" content="此文主旨是记录面试中遇到的面试题，包括js中常见，易错，重要知识点  window.onload和$(document).ready()的区别window.onload是在页面中包含图片在内的所有元素全部加载完成再执行； $(document).ready()是DOM树加载完成之后执行，不包含图片，其他媒体文件； 因此$(document).ready()快于window.onload执行； 数">
+<meta property="og:description" content="此文主旨是记录面试中遇到的面试题，包括js中常见，易错，重要知识点  window.onload和$(document).ready()的区别window.onload是在页面中包含图片在内的所有元素全部加载完成再执行； $(document).ready()是DOM树加载完成之后执行，不包含图片，其他媒体文件； 因此$(document).ready()快于window.onload执行；">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-04-22T03:49:43.010Z">
+<meta property="og:updated_time" content="2018-04-22T03:51:04.432Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="经验总结之JavaScript篇(一)">
-<meta name="twitter:description" content="此文主旨是记录面试中遇到的面试题，包括js中常见，易错，重要知识点  window.onload和$(document).ready()的区别window.onload是在页面中包含图片在内的所有元素全部加载完成再执行； $(document).ready()是DOM树加载完成之后执行，不包含图片，其他媒体文件； 因此$(document).ready()快于window.onload执行； 数">
+<meta name="twitter:description" content="此文主旨是记录面试中遇到的面试题，包括js中常见，易错，重要知识点  window.onload和$(document).ready()的区别window.onload是在页面中包含图片在内的所有元素全部加载完成再执行； $(document).ready()是DOM树加载完成之后执行，不包含图片，其他媒体文件； 因此$(document).ready()快于window.onload执行；">
 
 
 
@@ -426,7 +426,8 @@
 <h2 id="window-onload和-document-ready-的区别"><a href="#window-onload和-document-ready-的区别" class="headerlink" title="window.onload和$(document).ready()的区别"></a>window.onload和$(document).ready()的区别</h2><pre><code>window.onload是在页面中包含图片在内的所有元素全部加载完成再执行；
 $(document).ready()是DOM树加载完成之后执行，不包含图片，其他媒体文件；
 因此$(document).ready()快于window.onload执行；
-</code></pre><h2 id="数组去重"><a href="#数组去重" class="headerlink" title="数组去重"></a>数组去重</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> arr = [<span class="string">'a'</span>,<span class="string">'bb'</span>,<span class="string">'22'</span>,<span class="string">'a'</span>,<span class="string">'yuci'</span>,<span class="string">'haha'</span>,<span class="string">'22'</span>];</span><br></pre></td></tr></table></figure>
+</code></pre><a id="more"></a> 
+<h2 id="数组去重"><a href="#数组去重" class="headerlink" title="数组去重"></a>数组去重</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> arr = [<span class="string">'a'</span>,<span class="string">'bb'</span>,<span class="string">'22'</span>,<span class="string">'a'</span>,<span class="string">'yuci'</span>,<span class="string">'haha'</span>,<span class="string">'22'</span>];</span><br></pre></td></tr></table></figure>
 <p>1.es6数据结构Set</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> unique = <span class="keyword">new</span> <span class="built_in">Set</span>(arr);  </span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Array</span>.from(unique));</span><br></pre></td></tr></table></figure>
 <p>2.使用push()</p>
