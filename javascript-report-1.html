@@ -89,7 +89,7 @@
 <meta property="og:site_name" content="Yucihent&#39;s Blog">
 <meta property="og:description" content="此文主旨是记录面试中遇到的面试题，包括js中常见，易错，重要知识点">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-04-22T04:09:31.717Z">
+<meta property="og:updated_time" content="2018-04-22T04:18:51.160Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="经验总结之JavaScript篇(一)">
 <meta name="twitter:description" content="此文主旨是记录面试中遇到的面试题，包括js中常见，易错，重要知识点">
@@ -441,13 +441,13 @@ $(document).ready()是DOM树加载完成之后执行，不包含图片，其他�
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> oUl = <span class="built_in">document</span>.getElementById(<span class="string">'oul'</span>);  </span><br><span class="line">oUl.addEventListener(<span class="string">'click'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">e</span>) </span>&#123;  </span><br><span class="line">    <span class="keyword">var</span> e = e||<span class="built_in">window</span>.event;  </span><br><span class="line">    <span class="keyword">var</span> tar = e.target;  </span><br><span class="line">    <span class="keyword">if</span>(tar.nodeName === <span class="string">'LI'</span>) &#123;  </span><br><span class="line">        alert(tar.innerHTML);  </span><br><span class="line">    &#125;  </span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
 <p><strong>更详细请看：<a href="http://www.codeceo.com/javascript-event-commission.html" target="_blank" rel="noopener">事件委托</a></strong></p>
 <h2 id="判断变量类型"><a href="#判断变量类型" class="headerlink" title="判断变量类型"></a>判断变量类型</h2><ul>
-<li><code>typeof()</code>用于判断简单数据；</li>
-<li>判断一个变量是对象还是数组使用<code>instanceof</code>，<code>constructor</code>或<code>Object.prototype.toString.call()</code>；</li>
+<li>typeof()用于判断简单数据；</li>
+<li>判断一个变量是对象还是数组使用instanceof，constructor或`Object.prototype.toString.call()；</li>
 </ul>
 <p>更详细请看：<a href="https://blog.csdn.net/yucihent/article/details/79652913" target="_blank" rel="noopener">判断数据类型</a></p>
 <h2 id="同步和异步（简要阐述）"><a href="#同步和异步（简要阐述）" class="headerlink" title="同步和异步（简要阐述）"></a>同步和异步（简要阐述）</h2><ul>
 <li>同步：由于js单线程，同步任务都在主线程上排队执行，前面任务没执行完成，后面的任务会一直等待；</li>
-<li>异步：不进入主线程，进入任务队列，等待主线程任务执行完成，开始执行。最基础的异步操作<code>setTimeout</code>和<code>setInterval</code>，等待主线程任务执行完，在开始执行里面的函数；</li>
+<li>异步：不进入主线程，进入任务队列，等待主线程任务执行完成，开始执行。最基础的异步操作setTimeout和setInterval，等待主线程任务执行完，在开始执行里面的函数；</li>
 </ul>
 <p><strong>更详细请看：<a href="http://www.ruanyifeng.com/blog/2014/10/event-loop.html" target="_blank" rel="noopener">js运行机制</a></strong></p>
 <h2 id="返回false的几种情况"><a href="#返回false的几种情况" class="headerlink" title="返回false的几种情况"></a>返回false的几种情况</h2><p>false，null，0，””，undefined，NaN</p>
@@ -480,17 +480,17 @@ $(document).ready()是DOM树加载完成之后执行，不包含图片，其他�
 <li>构造函数调用：指向new出来的对象；</li>
 <li>显示设置this：call，apply方法显示将this指向第一个参数指明的对象</li>
 </ul>
-<h2 id="new具体做了些什么"><a href="#new具体做了些什么" class="headerlink" title="new具体做了些什么"></a>new具体做了些什么</h2><p>-创建一个新对象foo；</p>
-<ul>
-<li>并将它的<code>__proto__</code>指向其构造函数的<code>prototype，foo.__proto__ = Foo.prototype</code>;</li>
-<li>动态将this指向新对象，<code>Foo.apply(foo，arguments)</code>;</li>
+<h2 id="new具体做了些什么"><a href="#new具体做了些什么" class="headerlink" title="new具体做了些什么"></a>new具体做了些什么</h2><ul>
+<li>创建一个新对象foo；</li>
+<li>并将它的<code>__proto__</code>指向其构造函数的prototype，<code>foo.__proto__ = Foo.prototype</code>;</li>
+<li>动态将this指向新对象，Foo.apply(foo，arguments);</li>
 <li>执行函数体中的代码；</li>
 <li>放回新对象foo;</li>
 </ul>
-<h2 id="原型和原型链"><a href="#原型和原型链" class="headerlink" title="原型和原型链"></a>原型和原型链</h2><p>创建一个函数就会为其创建一个<code>prototype</code>属性，指向这个函数的原型对象，原型对象会自动获得<code>constructor</code>属性，指向<code>prototype</code>属性所在函数。</p>
+<h2 id="原型和原型链"><a href="#原型和原型链" class="headerlink" title="原型和原型链"></a>原型和原型链</h2><p>创建一个函数就会为其创建一个prototype属性，指向这个函数的原型对象，原型对象会自动获得constructor属性，指向prototype属性所在函数。</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Function</span>.prototype.a = <span class="string">"a"</span>;    </span><br><span class="line"><span class="built_in">Object</span>.prototype.b = <span class="string">"b"</span>;    </span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Person</span>(<span class="params"></span>)</span>&#123;&#125;    </span><br><span class="line"><span class="built_in">console</span>.log(Person);    <span class="comment">//function Person()    </span></span><br><span class="line"><span class="keyword">let</span> p = <span class="keyword">new</span> Person();    </span><br><span class="line"><span class="built_in">console</span>.log(p);         <span class="comment">//Person &#123;&#125; 对象    </span></span><br><span class="line"><span class="built_in">console</span>.log(p.a);       <span class="comment">//undefined    </span></span><br><span class="line"><span class="built_in">console</span>.log(p.b);       <span class="comment">//b</span></span><br></pre></td></tr></table></figure>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">p.__proto__ === Person.prototype；Person.prototype.constructor === Person</span><br></pre></td></tr></table></figure>
-<p> 当调用某种方法或查找某种属性时，首先会在自身调用和查找，如果自身并没有该属性或方法，则会去它的<code>__proto__</code>属性中调用查找，也就是它构造函数的<code>prototype</code>中调用查找，如果构造函数中也没有该属性方法，则会去构造函数的隐式原型中查找，一直到null，就这样形成原型链。</p>
+<p> 当调用某种方法或查找某种属性时，首先会在自身调用和查找，如果自身并没有该属性或方法，则会去它的<code>__proto__</code>属性中调用查找，也就是它构造函数的prototype中调用查找，如果构造函数中也没有该属性方法，则会去构造函数的隐式原型中查找，一直到null，就这样形成原型链。</p>
 <p><strong>更多有关原型请看：<a href="https://github.com/hezizi/Blog/issues/1" target="_blank" rel="noopener">原型和原型链</a></strong></p>
 <h2 id="继承方式"><a href="#继承方式" class="headerlink" title="继承方式"></a>继承方式</h2><p><strong>原型链继承：</strong></p>
 <p>Child()的原型作为Parent()的实例来继承Parent()的方法属性</p>
