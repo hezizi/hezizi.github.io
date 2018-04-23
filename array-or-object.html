@@ -89,7 +89,7 @@
 <meta property="og:site_name" content="Yucihent&#39;s Blog">
 <meta property="og:description" content="Js中如何准确判断一个变量是什么，面试中这是考一个人基本功扎不扎实必定会问的一个问题  一，判断方法1.typeof 我们能够使用typeof判断变量的身份，判断字符串得到string，数字和NaN得到number，函数会得到function等，但是判断数组，对象和null时都会得到object，详细请看js数据类型，这就是typeof的局限性，并不能准确的判断该变量的”真实身份”。那如何判断一">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-04-23T10:07:37.736Z">
+<meta property="og:updated_time" content="2018-04-23T10:09:32.748Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="判断一个变量是数组还是对象">
 <meta name="twitter:description" content="Js中如何准确判断一个变量是什么，面试中这是考一个人基本功扎不扎实必定会问的一个问题  一，判断方法1.typeof 我们能够使用typeof判断变量的身份，判断字符串得到string，数字和NaN得到number，函数会得到function等，但是判断数组，对象和null时都会得到object，详细请看js数据类型，这就是typeof的局限性，并不能准确的判断该变量的”真实身份”。那如何判断一">
@@ -425,6 +425,7 @@
 </blockquote>
 <h2 id="一，判断方法"><a href="#一，判断方法" class="headerlink" title="一，判断方法"></a>一，判断方法</h2><p><strong>1.typeof</strong></p>
 <p>我们能够使用typeof判断变量的身份，判断字符串得到string，数字和NaN得到number，函数会得到function等，但是判断数组，对象和null时都会得到object，详细请看<a href="https://blog.csdn.net/yucihent/article/details/79417296" target="_blank" rel="noopener">js数据类型</a>，这就是typeof的局限性，并不能准确的判断该变量的”真实身份”。那如何判断一个变量是数组还是对象？</p>
+<a id="more"></a>
 <p><strong>2.instanceof</strong></p>
 <p>使用instanceof可以用来判断一个变量是数组还是对象，原理如下：</p>
 <p>数组也是对象的一种，使用instanceof都会返回true<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> arr = <span class="keyword">new</span> <span class="built_in">Array</span>();</span><br></pre></td></tr></table></figure></p>
