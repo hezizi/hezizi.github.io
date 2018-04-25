@@ -6,10 +6,8 @@
     <content type="text"><![CDATA[问题： 做php开发时提示：无法使用PHP可执行的设置，设置php.validate。executablePath配置PHP可执行文件 解决：一：打开vscode设置，找到php.validate.executablePath 二：找到php.exe路径，将php.validate.executablePath值设置成该路径即可]]></content>
       <categories>
         <category>VScode</category>
-        <category>经验总结</category>
       </categories>
       <tags>
-        <tag>经验总结</tag>
         <tag>VScode</tag>
       </tags>
   </entry>
