@@ -1,6 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[jQuery插件开发--Tab]]></title>
+    <url>%2Fjquery-plugin-tab.html</url>
+    <content type="text"><![CDATA[打造自己的插件库 人工参数配置12345678$(function() &#123; $('.jq-tab').tabPlugin(&#123; //人工参数 type: 'click', effect: 'dd', auto: 1000 &#125;)&#125;) 默认参数12345this.default = &#123; type: 'click', effect: 'default', auto: false&#125; tab插件，包含三个参数可配置：触发方式，效果，是否自动播放123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354555657585960616263&lt;script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"&gt;&lt;/script&gt;&lt;script&gt; $(function() &#123; $('.jq-tab').tabPlugin(&#123; //人工参数 type: 'click', effect: 'dd', auto: 1000 &#125;) &#125;) ;(function($, window, document) &#123; function Tab(opts) &#123; //默认参数 this.default = &#123; type: 'click', effect: 'default', auto: false &#125; //合并参数 this.opt = $.extend(true, &#123;&#125;, this.default, opts); this.lis = $('.nav').find('li'); this.content = $('.content').find('li'); this.num = 0; &#125; Tab.prototype = &#123; init() &#123; this.clickTab(); &#125;, clickTab() &#123; var $this = this; if(this.opt.type == 'mouseover') &#123; this.lis.on(this.opt.type, function() &#123; $this.tabType($(this)); $this.tabEffect($(this).index()); &#125;) &#125; else &#123; this.lis.on('click', function() &#123; $this.tabType($(this)); $this.tabEffect($(this).index()); &#125;) &#125; &#125;, tabType(cur) &#123; var onIndex = cur.index(); cur.addClass('on').siblings().removeClass('on'); this.num = onIndex; &#125;, tabEffect(ind) &#123; if(this.opt.effect == 'fade') &#123; this.content.eq(ind).fadeIn().siblings().fadeOut(); &#125; else &#123; this.content.eq(ind).addClass('active').siblings().removeClass('active'); &#125; &#125; &#125; $.fn.tabPlugin = function(options) &#123; //创建实例 var tab = new Tab(options); return tab.init(); &#125; &#125;)(jQuery, window, document)&lt;/script&gt;]]></content>
+      <categories>
+        <category>jQuery</category>
+        <category>插件开发</category>
+      </categories>
+      <tags>
+        <tag>jQuery</tag>
+        <tag>插件开发</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[phpMyAdmin中导出的sql文件导入到navicat中所需注意点]]></title>
     <url>%2Fmysql-navicat.html</url>
     <content type="text"><![CDATA[好吧，这是最近在做php时碰到的问题，记录一下 这是从phpMyAdmin中导出的sql文件格式：123456CREATE TABLE IF NOT EXISTS `article` ( `id` int(11) NOT NULL AUTO_INCREMENT, `title` varchar(150) NOT NULL, `addtime` int(10) NOT NULL, PRIMARY KEY (`id`)) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=96 ; 这是从navicat中导出的sql文件格式：12345678910DROP TABLE IF EXISTS `chat`;CREATE TABLE `chat` ( `userid` int(10) unsigned NOT NULL AUTO_INCREMENT, `nickname` varchar(20) NOT NULL, `username` varchar(10) NOT NULL, `password` varchar(32) NOT NULL, `profile` varchar(100) NOT NULL, `systime` int(10) NOT NULL, PRIMARY KEY (`userid`)) ENGINE=MyISAM AUTO_INCREMENT=87 DEFAULT CHARSET=utf8; 既然把sql文件导入到navicat中，就肯定是按照navicat的sql文件格式来书写：1234567DROP TABLE IF EXISTS article;CREATE TABLE article ( `id` int(11) NOT NULL AUTO_INCREMENT, `title` varchar(150) NOT NULL, `addtime` int(10) NOT NULL, PRIMARY KEY (`id`)) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=96 ; 注意：导入sql文件，表名是不需要带反引号的，要去掉]]></content>
