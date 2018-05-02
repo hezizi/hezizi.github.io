@@ -90,7 +90,7 @@
 <meta property="og:description" content="一，相关概念 EC : 执行上下文 ECS : 执行环境栈 VO ： 变量对象 AO ： 活动对象 scope chain ：作用域链">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://user-gold-cdn.xitu.io/2018/4/3/1628989f46f94209?w=780&h=520&f=png&s=17411">
-<meta property="og:updated_time" content="2018-04-23T09:37:02.839Z">
+<meta property="og:updated_time" content="2018-05-02T13:09:46.539Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="深入javascript之执行上下文">
 <meta name="twitter:description" content="一，相关概念 EC : 执行上下文 ECS : 执行环境栈 VO ： 变量对象 AO ： 活动对象 scope chain ：作用域链">
@@ -439,7 +439,7 @@
 <p>全局上下文是最外围的一个执行环境，web浏览器中被认为是window对象。在初始化代码时会先进入全局上下文中，每当一个函数被调用时就会为该函数创建一个执行上下文，每个函数都有自己的执行上下文。来看一段代码：</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">f1</span>(<span class="params"></span>) </span>&#123;  </span><br><span class="line">    <span class="keyword">var</span> f1Context = <span class="string">'f1 context'</span>;  </span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">f2</span>(<span class="params"></span>) </span>&#123;  </span><br><span class="line">        <span class="keyword">var</span> f2Context = <span class="string">'f2 context'</span>;  </span><br><span class="line">        <span class="function"><span class="keyword">function</span> <span class="title">f3</span>(<span class="params"></span>) </span>&#123;  </span><br><span class="line">            <span class="keyword">var</span> f3Context = <span class="string">'f3 context'</span>;  </span><br><span class="line">            <span class="built_in">console</span>.log(f3Context);  </span><br><span class="line">        &#125;  </span><br><span class="line">        f3();  </span><br><span class="line">        <span class="built_in">console</span>.log(f2Context);  </span><br><span class="line">    &#125;  </span><br><span class="line">    f2();  </span><br><span class="line">    <span class="built_in">console</span>.log(f1Context);  </span><br><span class="line">&#125;  </span><br><span class="line">f1();</span><br></pre></td></tr></table></figure>
 <p>这段代码有4个执行上下文：全局上下文和f1()，f2()，f3()属于自己的执行上下文。</p>
-<p><strong>全局上下文拥有变量f1()，f1()的上下文中有变量f1Context和f2()，f2()的上下文有变量f2Context和f3()，f3()上下文有变量f3Context</strong>。</p>
+<p><strong>全局上下文拥有f1()，f1()的上下文中有变量f1Context和f2()，f2()的上下文有变量f2Context和f3()，f3()上下文有变量f3Context</strong>。</p>
 <p>在这我们了解下执行环境栈ECS，一段代码所有的执行上下文都会被推入栈中等待被执行，因为js是单线程，任务都为同步任务的情况下某一时间只能执行一个任务，<strong>执行一段代码首先会进入全局上下文中，并将其压入ECS中，执行f1()会为其创建执行上下文压入栈顶，f1()中有f2()，再为f2()创建f2()的执行上下文，依次，最终全局上下文被压入到栈底，f3()的执行上下文在栈顶，函数执行完后，ECS就会弹出其上下文，f3()上下文弹出后，f2()上下文来到栈顶，开始执行f2()，依次，最后ECS中只剩下全局上下文，它等到应用程序退出，例如浏览器关闭时销毁</strong>。</p>
 <p>总结：（执行上下文就用EC替代）</p>
 <pre><code>1. 全局上下文压入栈顶
