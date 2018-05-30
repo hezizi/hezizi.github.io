@@ -3,7 +3,7 @@
   <entry>
     <title><![CDATA[开发小总结]]></title>
     <url>%2Flittle-tips.html</url>
-    <content type="text"><![CDATA[通过js动态添加的dom元素无法直接绑定事件，需要使用 123$('#父级节点').on('click', 'emit', function() &#123;&#125;) 来进行绑定事件]]></content>
+    <content type="text"><![CDATA[通过js动态添加的dom元素无法直接绑定事件，需要通过 123$('#父级节点').on('click', '绑定事件元素', function() &#123;&#125;) $(this)无法在ajax中直接使用，解决：将$(this)赋值给一变量 12345678910$('#button').on('click', function() &#123; var _this = $(this); $.ajax(&#123; type: 'get', url: '........', data: &#123; userId: _this.attr('id'); &#125; &#125;)&#125;)]]></content>
       <categories>
         <category>JavaScript</category>
         <category>经验总结</category>
