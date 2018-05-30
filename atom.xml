@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yucihent.top/"/>
-  <updated>2018-05-30T13:17:26.933Z</updated>
+  <updated>2018-05-30T13:41:48.483Z</updated>
   <id>http://yucihent.top/</id>
   
   <author>
@@ -21,23 +21,28 @@
     <link href="http://yucihent.top/little-tips.html"/>
     <id>http://yucihent.top/little-tips.html</id>
     <published>2018-05-29T16:00:00.000Z</published>
-    <updated>2018-05-30T13:17:26.933Z</updated>
+    <updated>2018-05-30T13:41:48.483Z</updated>
     
-    <content type="html"><![CDATA[<blockquote></blockquote>]]></content>
+    <content type="html"><![CDATA[<blockquote><p>通过js动态添加的dom元素无法直接绑定事件，需要使用</p></blockquote><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$(<span class="string">'#父级节点'</span>).on(<span class="string">'click'</span>, <span class="string">'emit'</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line"></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure><p>来进行绑定事件</p><blockquote></blockquote>]]></content>
     
     <summary type="html">
     
       
       
         &lt;blockquote&gt;
+&lt;p&gt;通过js动态添加的dom元素无法直接绑定事件，需要使用&lt;/p&gt;
 &lt;/blockquote&gt;
-
+&lt;figure class=&quot;highlight javascript&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span 
       
     
     </summary>
     
-      <category term="经验总结" scheme="http://yucihent.top/categories/%E7%BB%8F%E9%AA%8C%E6%80%BB%E7%BB%93/"/>
+      <category term="JavaScript" scheme="http://yucihent.top/categories/JavaScript/"/>
     
+      <category term="经验总结" scheme="http://yucihent.top/categories/JavaScript/%E7%BB%8F%E9%AA%8C%E6%80%BB%E7%BB%93/"/>
+    
+    
+      <category term="JavaScript" scheme="http://yucihent.top/tags/JavaScript/"/>
     
       <category term="经验总结" scheme="http://yucihent.top/tags/%E7%BB%8F%E9%AA%8C%E6%80%BB%E7%BB%93/"/>
     

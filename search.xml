@@ -3,11 +3,13 @@
   <entry>
     <title><![CDATA[开发小总结]]></title>
     <url>%2Flittle-tips.html</url>
-    <content type="text"><![CDATA[]]></content>
+    <content type="text"><![CDATA[通过js动态添加的dom元素无法直接绑定事件，需要使用 123$('#父级节点').on('click', 'emit', function() &#123;&#125;) 来进行绑定事件]]></content>
       <categories>
+        <category>JavaScript</category>
         <category>经验总结</category>
       </categories>
       <tags>
+        <tag>JavaScript</tag>
         <tag>经验总结</tag>
       </tags>
   </entry>
