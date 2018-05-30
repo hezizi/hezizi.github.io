@@ -81,18 +81,18 @@
 
 
 
-<meta name="description" content="通过js动态添加的dom元素无法直接绑定事件，需要通过  123$(&apos;#父级节点&apos;).on(&apos;click&apos;, &apos;绑定事件元素&apos;, function() &amp;#123;&amp;#125;)  $(this)无法在ajax中直接使用，解决：将$(this)赋值给一变量  12345678910$(&apos;#button&apos;).on(&apos;click&apos;, function() &amp;#123;var _this = $(th">
+<meta name="description" content="通过js动态添加的dom元素无法直接绑定事件，需要通过  123$(&apos;#父级节点&apos;).on(&apos;click&apos;, &apos;绑定事件元素&apos;, function() &amp;#123;&amp;#125;)  $(this)无法在ajax中直接使用，解决：将$(this)赋值给一变量  12345678910$(&apos;#button&apos;).on(&apos;click&apos;, function() &amp;#123;	var _this = $(t">
 <meta name="keywords" content="JavaScript,经验总结">
 <meta property="og:type" content="article">
 <meta property="og:title" content="开发小总结">
 <meta property="og:url" content="http://yucihent.top/little-tips.html">
 <meta property="og:site_name" content="Yucihent&#39;s Blog">
-<meta property="og:description" content="通过js动态添加的dom元素无法直接绑定事件，需要通过  123$(&apos;#父级节点&apos;).on(&apos;click&apos;, &apos;绑定事件元素&apos;, function() &amp;#123;&amp;#125;)  $(this)无法在ajax中直接使用，解决：将$(this)赋值给一变量  12345678910$(&apos;#button&apos;).on(&apos;click&apos;, function() &amp;#123;var _this = $(th">
+<meta property="og:description" content="通过js动态添加的dom元素无法直接绑定事件，需要通过  123$(&apos;#父级节点&apos;).on(&apos;click&apos;, &apos;绑定事件元素&apos;, function() &amp;#123;&amp;#125;)  $(this)无法在ajax中直接使用，解决：将$(this)赋值给一变量  12345678910$(&apos;#button&apos;).on(&apos;click&apos;, function() &amp;#123;	var _this = $(t">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-05-30T13:53:01.969Z">
+<meta property="og:updated_time" content="2018-05-30T13:54:57.284Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="开发小总结">
-<meta name="twitter:description" content="通过js动态添加的dom元素无法直接绑定事件，需要通过  123$(&apos;#父级节点&apos;).on(&apos;click&apos;, &apos;绑定事件元素&apos;, function() &amp;#123;&amp;#125;)  $(this)无法在ajax中直接使用，解决：将$(this)赋值给一变量  12345678910$(&apos;#button&apos;).on(&apos;click&apos;, function() &amp;#123;var _this = $(th">
+<meta name="twitter:description" content="通过js动态添加的dom元素无法直接绑定事件，需要通过  123$(&apos;#父级节点&apos;).on(&apos;click&apos;, &apos;绑定事件元素&apos;, function() &amp;#123;&amp;#125;)  $(this)无法在ajax中直接使用，解决：将$(this)赋值给一变量  12345678910$(&apos;#button&apos;).on(&apos;click&apos;, function() &amp;#123;	var _this = $(t">
 
 
 
@@ -427,7 +427,7 @@
 <blockquote>
 <p>$(this)无法在ajax中直接使用，解决：将$(this)赋值给一变量</p>
 </blockquote>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">$(<span class="string">'#button'</span>).on(<span class="string">'click'</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line"><span class="keyword">var</span> _this = $(<span class="keyword">this</span>);</span><br><span class="line">$.ajax(&#123;</span><br><span class="line">	type: <span class="string">'get'</span>,</span><br><span class="line">	url: <span class="string">'........'</span>,</span><br><span class="line">	data: &#123;</span><br><span class="line">		userId: _this.attr(<span class="string">'id'</span>);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">$(<span class="string">'#button'</span>).on(<span class="string">'click'</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">	<span class="keyword">var</span> _this = $(<span class="keyword">this</span>);</span><br><span class="line">	$.ajax(&#123;</span><br><span class="line">		type: <span class="string">'get'</span>,</span><br><span class="line">		url: <span class="string">'........'</span>,</span><br><span class="line">		data: &#123;</span><br><span class="line">			userId: _this.attr(<span class="string">'id'</span>);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
 
       
     </div>
