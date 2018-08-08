@@ -1,6 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[JS导出Excel文件]]></title>
+    <url>%2Fjs-export-excel.html</url>
+    <content type="text"><![CDATA[需求： datatable表格，每一行带有checkbox，勾选checkbox导出当前行所有数据，全选则导出所有选中行的数据 1&lt;a class="download" download="用户列表"&gt;导出&lt;/a&gt; 12345678910111213141516171819202122232425262728293031323334353637383940function exportFile() &#123; var dataArr = [];//定义数组用来保存所勾选的列表当前行数据 // 定义表头 var str = '&lt;tr&gt; &lt;th&gt;样本名称&lt;/th&gt; &lt;th&gt;问卷编码&lt;/th&gt; &lt;th&gt;提交时间&lt;/th&gt; &lt;/tr&gt;' // 遍历列表中所购选中的行 $('table').find('tr.hover-bg').each(function() &#123; var Data = new Object(); Data.AreaName = $(this).find('td:eq(1)').html(); Data.DataID= $(this).find('td:eq(2)').html(); Data.EntryTime= $(this).find('td:eq(3)').html(); dataArr.push(Data); &#125;) if($('table').find('tr').hasClass('hover-bg')) &#123; //循环遍历，每行加入tr标签，每个单元格加td标签 for (let i = 0; i &lt; dataArr.length; i++) &#123; str += '&lt;tr&gt;'; for (let item in dataArr[i]) &#123; //增加\t为了不让表格显示科学计数法或者其他格式 str += `&lt;td&gt;$&#123; dataArr[i][item] + '\t'&#125;&lt;/td&gt;`; &#125; str += '&lt;/tr&gt;'; &#125; var template = `&lt;html xmlns:o="urn:schemas-microsoft-com:office:office" xmlns:x="urn:schemas-microsoft-com:office:excel" xmlns="http://www.w3.org/TR/REC-html40"&gt; &lt;head&gt;&lt;!--[if gte mso 9]&gt;&lt;xml&gt;&lt;x:ExcelWorkbook&gt;&lt;x:ExcelWorksheets&gt;&lt;x:ExcelWorksheet&gt; &lt;x:Name&gt;'录入列表.xls'&lt;/x:Name&gt; &lt;x:WorksheetOptions&gt;&lt;x:DisplayGridlines/&gt;&lt;/x:WorksheetOptions&gt;&lt;/x:ExcelWorksheet&gt; &lt;/x:ExcelWorksheets&gt;&lt;/x:ExcelWorkbook&gt;&lt;/xml&gt;&lt;![endif]--&gt; &lt;/head&gt;&lt;body&gt;&lt;table&gt;$&#123;str&#125;&lt;/table&gt;&lt;/body&gt;&lt;/html&gt;`; // 实例化一个Blob对象，其构造函数的第一个参数是包含文件内容的数组，第二个参数是包含文件类型属性的对象 var blob = new Blob([template], &#123;type: "application/vnd.ms-excel"&#125;); $('.download').attr('href', URL.createObjectURL(blob)); &#125;&#125;]]></content>
+      <categories>
+        <category>JavaScript</category>
+      </categories>
+      <tags>
+        <tag>JavaScript</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[dataTables--ajax 分页基本使用]]></title>
     <url>%2FdataTables-ajax.html</url>
     <content type="text"><![CDATA[dataTables是一款很强大很好用的前端table 分页插件，地址：dataTables 如何使用大家可以去官网看看教程，此处总结下dataTables结合ajax需要注意的点 一，开始使用JavaScript代码12345678910111213$(document).ready(function() &#123; $('#example').DataTable( &#123; "ajax": "数据url", "columns": [ &#123; "data": "name" &#125;, &#123; "data": "position" &#125;, &#123; "data": "office" &#125;, &#123; "data": "extn" &#125;, &#123; "data": "start_date" &#125;, &#123; "data": "salary" &#125; ] &#125; );&#125; ); json数据12345678910111213141516171819202122&#123; "data": [ &#123; "id": "1", "name": "Tiger Nixon", "position": "System Architect", "salary": "$320,800", "start_date": "2011/04/25", "office": "Edinburgh", "extn": "5421" &#125;, &#123; "id": "2", "name": "Garrett Winters", "position": "Accountant", "salary": "$170,750", "start_date": "2011/07/25", "office": "Tokyo", "extn": "8422" &#125;, ]&#125; 数据格式必须一致，data作为key，值为数组对象，获取对象属性值能够直接使用data.属性名来调用获取。 如果不能使用data.属性名来直接调用获取值则需要使用dataSrc来动态指向数据源。 JavaScript代码1234567891011121314$(document).ready(function() &#123; $('#example').DataTable( &#123; "ajax": "数据url", "dataSrc": "data.records", "columns": [ &#123; "data": "name" &#125;, &#123; "data": "position" &#125;, &#123; "data": "office" &#125;, &#123; "data": "extn" &#125;, &#123; "data": "start_date" &#125;, &#123; "data": "salary" &#125; ] &#125; );&#125; ); json数据12345678910111213141516171819202122"data": &#123; "records": [ &#123; "id": "1", "name": "Tiger Nixon", "position": "System Architect", "salary": "$320,800", "start_date": "2011/04/25", "office": "Edinburgh", "extn": "5421" &#125;, &#123; "id": "2", "name": "Garrett Winters", "position": "Accountant", "salary": "$170,750", "start_date": "2011/07/25", "office": "Tokyo", "extn": "8422" &#125;, ]&#125; 二，服务器处理(Server-side processing)1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950515253545556575859606162636465666768697071727374757677787980"processing": true,"serverSide": true,ajax(data, callback, settings) &#123; console.log(data); //封装请求参数 var param = &#123;&#125;; param.pageSize = data.length; //页面显示记录条数，在页面显示每页显示多少项的时候 param.pageIndex = data.start + 1; //开始的记录序号 console.log(param); $.ajax(&#123; type: 'get', url: 'http://192.168:8766/User/list', cache: false, //禁用缓存 data: param, dataType: 'json', success: function(res) &#123; setTimeout( function () &#123; var out = &#123;&#125;; out.draw = data.draw; out.recordsTotal = res.data.count; out.recordsFiltered = res.data.count; out.data = res.data.records; callback( out ); &#125;, 50 ); &#125;, error() &#123; alert('error'); &#125; &#125;)&#125;,"bLengthChange": false, //关闭选择显示条数"bSort": false, //不能排序"iDisplayLength": 10,"pagingType": "full_numbers","language": &#123; "bProcessing": "正在加载中......", "sZeroRecords": "没有检索到数据", "info": "显示 _START_ 至 _END_ 条记录，共 _TOTAL_ 条记录", "sInfoFiltered": "数据表中共为 _MAX_ 条记录", "oPaginate" : &#123; "sFirst" : "首页", "sPrevious" : "上一页", "sNext" : "下一页", "sLast" : "末页" &#125;,&#125;,"columns": [ &#123; data: 'UserId', render(data, type, full, meta) &#123; return ` &lt;input type="checkbox" class="checkchild" value="$&#123;data&#125;" /&gt; &lt;img class="check-img" src="../assets/img/backstage_icon_cheakbox_default.png" alt=""&gt; ` &#125; &#125;, &#123;data : "Account"&#125;, &#123;data : "RealName"&#125;, &#123;data : "Email"&#125;, &#123;data : "DepartmentId"&#125;, &#123;data : "UserId"&#125;, &#123;data : "WorkGroupId"&#125;, &#123;data : "IsManager"&#125;, &#123;data : "Mobile"&#125;, &#123; data : "CreateDate", &#125;, &#123; render(data, type, full, meta) &#123; return ` &lt;div class="am-btn-toolbar"&gt; &lt;div class="am-btn-group am-btn-group-xs"&gt; &lt;button class="am-btn am-btn-bg-white am-btn-xs am-text-secondary edit"&gt;&lt;span class="am-icon-pencil-square-o"&gt;&lt;/span&gt;编辑&lt;/button&gt; &lt;button class="am-btn am-btn-bg-white am-btn-xs am-text-danger am-hide-sm-only del"&gt;&lt;span class="am-icon-copy"&gt;&lt;/span&gt; 删除&lt;/button&gt; &lt;button class="am-btn am-btn-bg-white am-btn-xs am-text-warning am-hide-sm-only authorize"&gt;&lt;span class="am-icon-trash-o"&gt;&lt;/span&gt; 授权&lt;/button&gt; &lt;/div&gt; &lt;/div&gt;` &#125; &#125;] 12param.pageSize = data.length; //页面显示记录条数，在页面显示每页显示多少项的时候param.pageIndex = data.start + 1; //开始的记录序号 pageSize：为后台数据，每页有多少条数据 pageIndex：页面索引 因为data.start默认值为0，所以加一表示第一页开始 记录自己踩过的坑]]></content>
@@ -40,17 +51,6 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[vscode设置php.validate.executablePath]]></title>
-    <url>%2Fvscode-setting.html</url>
-    <content type="text"><![CDATA[问题： 做php开发时提示：无法使用PHP可执行的设置，设置php.validate。executablePath配置PHP可执行文件 解决：一：打开vscode设置，找到php.validate.executablePath 二：找到php.exe路径，将php.validate.executablePath值设置成该路径即可]]></content>
-      <categories>
-        <category>VScode</category>
-      </categories>
-      <tags>
-        <tag>VScode</tag>
-      </tags>
-  </entry>
-  <entry>
     <title><![CDATA[phpMyAdmin中导出的sql文件导入到navicat中所需注意点]]></title>
     <url>%2Fmysql-navicat.html</url>
     <content type="text"><![CDATA[好吧，这是最近在做php时碰到的问题，记录一下 这是从phpMyAdmin中导出的sql文件格式：123456CREATE TABLE IF NOT EXISTS `article` ( `id` int(11) NOT NULL AUTO_INCREMENT, `title` varchar(150) NOT NULL, `addtime` int(10) NOT NULL, PRIMARY KEY (`id`)) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=96 ; 这是从navicat中导出的sql文件格式：12345678910DROP TABLE IF EXISTS `chat`;CREATE TABLE `chat` ( `userid` int(10) unsigned NOT NULL AUTO_INCREMENT, `nickname` varchar(20) NOT NULL, `username` varchar(10) NOT NULL, `password` varchar(32) NOT NULL, `profile` varchar(100) NOT NULL, `systime` int(10) NOT NULL, PRIMARY KEY (`userid`)) ENGINE=MyISAM AUTO_INCREMENT=87 DEFAULT CHARSET=utf8; 既然把sql文件导入到navicat中，就肯定是按照navicat的sql文件格式来书写：1234567DROP TABLE IF EXISTS article;CREATE TABLE article ( `id` int(11) NOT NULL AUTO_INCREMENT, `title` varchar(150) NOT NULL, `addtime` int(10) NOT NULL, PRIMARY KEY (`id`)) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=96 ; 注意：导入sql文件，表名是不需要带反引号的，要去掉]]></content>
@@ -59,6 +59,17 @@
       </categories>
       <tags>
         <tag>mysql</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[vscode设置php.validate.executablePath]]></title>
+    <url>%2Fvscode-setting.html</url>
+    <content type="text"><![CDATA[问题： 做php开发时提示：无法使用PHP可执行的设置，设置php.validate。executablePath配置PHP可执行文件 解决：一：打开vscode设置，找到php.validate.executablePath 二：找到php.exe路径，将php.validate.executablePath值设置成该路径即可]]></content>
+      <categories>
+        <category>VScode</category>
+      </categories>
+      <tags>
+        <tag>VScode</tag>
       </tags>
   </entry>
   <entry>

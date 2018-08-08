@@ -308,6 +308,163 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yucihent.top/js-export-excel.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Yucihent">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/xm071.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Yucihent's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/js-export-excel.html" itemprop="url">JS导出Excel文件</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-08-08T21:50:00+08:00">
+                2018-08-08
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/JavaScript/" itemprop="url" rel="index">
+                    <span itemprop="name">JavaScript</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/js-export-excel.html" class="leancloud_visitors" data-flag-title="JS导出Excel文件">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <blockquote>
+<p>需求： datatable表格，每一行带有checkbox，勾选checkbox导出当前行所有数据，全选则导出所有选中行的数据</p>
+</blockquote>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">class</span>=<span class="string">"download"</span> <span class="attr">download</span>=<span class="string">"用户列表"</span>&gt;</span>导出<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">exportFile</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> dataArr = [];<span class="comment">//定义数组用来保存所勾选的列表当前行数据</span></span><br><span class="line">    <span class="comment">// 定义表头</span></span><br><span class="line">    <span class="keyword">var</span> str = <span class="string">'&lt;tr&gt;</span></span><br><span class="line"><span class="string">        &lt;th&gt;样本名称&lt;/th&gt;</span></span><br><span class="line"><span class="string">        &lt;th&gt;问卷编码&lt;/th&gt;</span></span><br><span class="line"><span class="string">        &lt;th&gt;提交时间&lt;/th&gt;</span></span><br><span class="line"><span class="string">    &lt;/tr&gt;'</span></span><br><span class="line">    <span class="comment">// 遍历列表中所购选中的行</span></span><br><span class="line">    $(<span class="string">'table'</span>).find(<span class="string">'tr.hover-bg'</span>).each(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="keyword">var</span> Data = <span class="keyword">new</span> <span class="built_in">Object</span>();</span><br><span class="line">        Data.AreaName = $(<span class="keyword">this</span>).find(<span class="string">'td:eq(1)'</span>).html();</span><br><span class="line">        Data.DataID= $(<span class="keyword">this</span>).find(<span class="string">'td:eq(2)'</span>).html();</span><br><span class="line">        Data.EntryTime= $(<span class="keyword">this</span>).find(<span class="string">'td:eq(3)'</span>).html();</span><br><span class="line">        dataArr.push(Data);</span><br><span class="line">    &#125;)</span><br><span class="line">    <span class="keyword">if</span>($(<span class="string">'table'</span>).find(<span class="string">'tr'</span>).hasClass(<span class="string">'hover-bg'</span>)) &#123;</span><br><span class="line">        <span class="comment">//循环遍历，每行加入tr标签，每个单元格加td标签</span></span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; dataArr.length; i++) &#123;</span><br><span class="line">            str += <span class="string">'&lt;tr&gt;'</span>;</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">let</span> item <span class="keyword">in</span> dataArr[i]) &#123;</span><br><span class="line">                <span class="comment">//增加\t为了不让表格显示科学计数法或者其他格式</span></span><br><span class="line">                str += <span class="string">`&lt;td&gt;<span class="subst">$&#123; dataArr[i][item] + <span class="string">'\t'</span>&#125;</span>&lt;/td&gt;`</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            str += <span class="string">'&lt;/tr&gt;'</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">var</span> template = <span class="string">`&lt;html xmlns:o="urn:schemas-microsoft-com:office:office"</span></span><br><span class="line"><span class="string">                          xmlns:x="urn:schemas-microsoft-com:office:excel"</span></span><br><span class="line"><span class="string">                          xmlns="http://www.w3.org/TR/REC-html40"&gt;</span></span><br><span class="line"><span class="string">                          &lt;head&gt;&lt;!--[if gte mso 9]&gt;&lt;xml&gt;&lt;x:ExcelWorkbook&gt;&lt;x:ExcelWorksheets&gt;&lt;x:ExcelWorksheet&gt;</span></span><br><span class="line"><span class="string">                            &lt;x:Name&gt;'录入列表.xls'&lt;/x:Name&gt;</span></span><br><span class="line"><span class="string">                            &lt;x:WorksheetOptions&gt;&lt;x:DisplayGridlines/&gt;&lt;/x:WorksheetOptions&gt;&lt;/x:ExcelWorksheet&gt;</span></span><br><span class="line"><span class="string">                            &lt;/x:ExcelWorksheets&gt;&lt;/x:ExcelWorkbook&gt;&lt;/xml&gt;&lt;![endif]--&gt;</span></span><br><span class="line"><span class="string">                            &lt;/head&gt;&lt;body&gt;&lt;table&gt;<span class="subst">$&#123;str&#125;</span>&lt;/table&gt;&lt;/body&gt;&lt;/html&gt;`</span>;</span><br><span class="line">                            </span><br><span class="line">        <span class="comment">// 实例化一个Blob对象，其构造函数的第一个参数是包含文件内容的数组，第二个参数是包含文件类型属性的对象</span></span><br><span class="line">        <span class="keyword">var</span> blob = <span class="keyword">new</span> Blob([template], &#123;<span class="attr">type</span>: <span class="string">"application/vnd.ms-excel"</span>&#125;);</span><br><span class="line">        $(<span class="string">'.download'</span>).attr(<span class="string">'href'</span>, URL.createObjectURL(blob));</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yucihent.top/dataTables-ajax.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -825,164 +982,6 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yucihent.top/vscode-setting.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Yucihent">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/xm071.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Yucihent's Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/vscode-setting.html" itemprop="url">vscode设置php.validate.executablePath</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-04-25T07:23:43+08:00">
-                2018-04-25
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/VScode/" itemprop="url" rel="index">
-                    <span itemprop="name">VScode</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-             <span id="/vscode-setting.html" class="leancloud_visitors" data-flag-title="vscode设置php.validate.executablePath">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数&#58;</span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h2 id="问题："><a href="#问题：" class="headerlink" title="问题："></a>问题：</h2><blockquote>
-<p>做php开发时提示：无法使用PHP可执行的设置，设置php.validate。executablePath配置PHP可执行文件</p>
-</blockquote>
-<h2 id="解决："><a href="#解决：" class="headerlink" title="解决："></a>解决：</h2><p>一：打开vscode设置，找到php.validate.executablePath</p>
-<p>二：找到php.exe路径，将php.validate.executablePath值设置成该路径即可</p>
-<p><img src="https://user-images.githubusercontent.com/28501094/39234524-132c3602-48a6-11e8-89e8-3e64eee93c89.png" alt="image"></p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yucihent.top/mysql-navicat.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1097,6 +1096,164 @@
             </a>
           </div>
           <!--/noindex-->
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yucihent.top/vscode-setting.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Yucihent">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/xm071.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Yucihent's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/vscode-setting.html" itemprop="url">vscode设置php.validate.executablePath</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-04-25T07:23:43+08:00">
+                2018-04-25
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/VScode/" itemprop="url" rel="index">
+                    <span itemprop="name">VScode</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/vscode-setting.html" class="leancloud_visitors" data-flag-title="vscode设置php.validate.executablePath">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="问题："><a href="#问题：" class="headerlink" title="问题："></a>问题：</h2><blockquote>
+<p>做php开发时提示：无法使用PHP可执行的设置，设置php.validate。executablePath配置PHP可执行文件</p>
+</blockquote>
+<h2 id="解决："><a href="#解决：" class="headerlink" title="解决："></a>解决：</h2><p>一：打开vscode设置，找到php.validate.executablePath</p>
+<p>二：找到php.exe路径，将php.validate.executablePath值设置成该路径即可</p>
+<p><img src="https://user-images.githubusercontent.com/28501094/39234524-132c3602-48a6-11e8-89e8-3e64eee93c89.png" alt="image"></p>
+
+          
         
       
     </div>
@@ -1809,180 +1966,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yucihent.top/javascript-context.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Yucihent">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/xm071.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Yucihent's Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/javascript-context.html" itemprop="url">深入javascript之执行上下文</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-04-21T20:45:27+08:00">
-                2018-04-21
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/JavaScript/" itemprop="url" rel="index">
-                    <span itemprop="name">JavaScript</span>
-                  </a>
-                </span>
-
-                
-                
-                  ， 
-                
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/JavaScript/深入Js系列/" itemprop="url" rel="index">
-                    <span itemprop="name">深入Js系列</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-             <span id="/javascript-context.html" class="leancloud_visitors" data-flag-title="深入javascript之执行上下文">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数&#58;</span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h2 id="一，相关概念"><a href="#一，相关概念" class="headerlink" title="一，相关概念"></a>一，相关概念</h2><ul>
-<li>EC : 执行上下文</li>
-<li>ECS : 执行环境栈</li>
-<li>VO ： 变量对象</li>
-<li>AO ： 活动对象</li>
-<li>scope chain ：作用域链</li>
-</ul>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/javascript-context.html#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -2037,7 +2020,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">12</span>
+                  <span class="site-state-item-count">13</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
