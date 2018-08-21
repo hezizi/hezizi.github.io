@@ -51,17 +51,6 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[vscode设置php.validate.executablePath]]></title>
-    <url>%2Fvscode-setting.html</url>
-    <content type="text"><![CDATA[问题： 做php开发时提示：无法使用PHP可执行的设置，设置php.validate。executablePath配置PHP可执行文件 解决：一：打开vscode设置，找到php.validate.executablePath 二：找到php.exe路径，将php.validate.executablePath值设置成该路径即可]]></content>
-      <categories>
-        <category>VScode</category>
-      </categories>
-      <tags>
-        <tag>VScode</tag>
-      </tags>
-  </entry>
-  <entry>
     <title><![CDATA[phpMyAdmin中导出的sql文件导入到navicat中所需注意点]]></title>
     <url>%2Fmysql-navicat.html</url>
     <content type="text"><![CDATA[好吧，这是最近在做php时碰到的问题，记录一下 这是从phpMyAdmin中导出的sql文件格式：123456CREATE TABLE IF NOT EXISTS `article` ( `id` int(11) NOT NULL AUTO_INCREMENT, `title` varchar(150) NOT NULL, `addtime` int(10) NOT NULL, PRIMARY KEY (`id`)) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=96 ; 这是从navicat中导出的sql文件格式：12345678910DROP TABLE IF EXISTS `chat`;CREATE TABLE `chat` ( `userid` int(10) unsigned NOT NULL AUTO_INCREMENT, `nickname` varchar(20) NOT NULL, `username` varchar(10) NOT NULL, `password` varchar(32) NOT NULL, `profile` varchar(100) NOT NULL, `systime` int(10) NOT NULL, PRIMARY KEY (`userid`)) ENGINE=MyISAM AUTO_INCREMENT=87 DEFAULT CHARSET=utf8; 既然把sql文件导入到navicat中，就肯定是按照navicat的sql文件格式来书写：1234567DROP TABLE IF EXISTS article;CREATE TABLE article ( `id` int(11) NOT NULL AUTO_INCREMENT, `title` varchar(150) NOT NULL, `addtime` int(10) NOT NULL, PRIMARY KEY (`id`)) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=96 ; 注意：导入sql文件，表名是不需要带反引号的，要去掉]]></content>
@@ -70,6 +59,17 @@
       </categories>
       <tags>
         <tag>mysql</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[vscode设置php.validate.executablePath]]></title>
+    <url>%2Fvscode-setting.html</url>
+    <content type="text"><![CDATA[问题： 做php开发时提示：无法使用PHP可执行的设置，设置php.validate。executablePath配置PHP可执行文件 解决：一：打开vscode设置，找到php.validate.executablePath 二：找到php.exe路径，将php.validate.executablePath值设置成该路径即可]]></content>
+      <categories>
+        <category>VScode</category>
+      </categories>
+      <tags>
+        <tag>VScode</tag>
       </tags>
   </entry>
   <entry>
