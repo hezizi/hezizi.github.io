@@ -3,7 +3,7 @@
   <entry>
     <title><![CDATA[开发小总结]]></title>
     <url>%2Flittle-tips.html</url>
-    <content type="text"><![CDATA[通过js动态添加的dom元素无法直接绑定事件，需要通过 123$('#父级节点').on('click', '绑定事件元素', function() &#123;&#125;) $(this)无法在ajax中直接使用，解决：将$(this)赋值给一变量 12345678910$('#button').on('click', function() &#123; var _this = $(this); $.ajax(&#123; type: 'get', url: '........', data: &#123; userId: _this.attr('id'); &#125; &#125;)&#125;) 通过使用.one()方法使事件只触发一次 使用eslint时对于使用了new关键词的代码需要加上 /* eslint-disable no-new */ 12345678/* eslint-disable no-new */new Vue(&#123; el: '#app', router, store, components: &#123; App &#125;, template: '&lt;App/&gt;'&#125;) swiper3和swiper4用法上稍有不同 12345678910swiperOption: &#123; // Swiper3使用 // pagination: '.swiper-pagination' // Swiper4 pagination: &#123; el: '.swiper-pagination' &#125;, loop: true&#125;]]></content>
+    <content type="text"><![CDATA[通过js动态添加的dom元素无法直接绑定事件，需要通过 123$('#父级节点').on('click', '绑定事件元素', function() &#123;&#125;) $(this)无法在ajax中直接使用，解决：将$(this)赋值给一变量 12345678910$('#button').on('click', function() &#123; var _this = $(this); $.ajax(&#123; type: 'get', url: '........', data: &#123; userId: _this.attr('id'); &#125; &#125;)&#125;) 通过使用.one()方法使事件只触发一次 使用eslint时对于使用了new关键字的代码需要加上 /* eslint-disable no-new */ 12345678/* eslint-disable no-new */new Vue(&#123; el: '#app', router, store, components: &#123; App &#125;, template: '&lt;App/&gt;'&#125;) swiper3和swiper4用法上稍有不同 12345678910swiperOption: &#123; // Swiper3使用 // pagination: '.swiper-pagination' // Swiper4 pagination: &#123; el: '.swiper-pagination' &#125;, loop: true&#125;]]></content>
       <categories>
         <category>JavaScript</category>
         <category>经验总结</category>
