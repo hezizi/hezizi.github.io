@@ -1,6 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[开发小总结]]></title>
+    <url>%2Flittle-tips.html</url>
+    <content type="text"><![CDATA[通过js动态添加的dom元素无法直接绑定事件，需要通过 123$('#父级节点').on('click', '绑定事件元素', function() &#123;&#125;) $(this)无法在ajax中直接使用，解决：将$(this)赋值给一变量 12345678910$('#button').on('click', function() &#123; var _this = $(this); $.ajax(&#123; type: 'get', url: '........', data: &#123; userId: _this.attr('id'); &#125; &#125;)&#125;) 通过使用.one()方法使事件只触发一次 使用eslint时对于使用了new关键词的代码需要加上 /* eslint-disable no-new */ swiper3和swiper4用法上稍有不同12345678910swiperOption: &#123; // Swiper3使用 // pagination: '.swiper-pagination' // Swiper4 pagination: &#123; el: '.swiper-pagination' &#125;, loop: true&#125;]]></content>
+      <categories>
+        <category>JavaScript</category>
+        <category>经验总结</category>
+      </categories>
+      <tags>
+        <tag>JavaScript</tag>
+        <tag>经验总结</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[JS导出Excel文件]]></title>
     <url>%2Fjs-export-excel.html</url>
     <content type="text"><![CDATA[需求： datatable表格，每一行带有checkbox，勾选checkbox导出当前行所有数据，全选则导出所有选中行的数据 1&lt;a class="download" download="用户列表"&gt;导出&lt;/a&gt; 12345678910111213141516171819202122232425262728293031323334353637383940function exportFile() &#123; var dataArr = [];//定义数组用来保存所勾选的列表当前行数据 // 定义表头 var str = '&lt;tr&gt; &lt;th&gt;样本名称&lt;/th&gt; &lt;th&gt;问卷编码&lt;/th&gt; &lt;th&gt;提交时间&lt;/th&gt; &lt;/tr&gt;' // 遍历列表中所购选中的行 $('table').find('tr.hover-bg').each(function() &#123; var Data = new Object(); Data.AreaName = $(this).find('td:eq(1)').html(); Data.DataID= $(this).find('td:eq(2)').html(); Data.EntryTime= $(this).find('td:eq(3)').html(); dataArr.push(Data); &#125;) if($('table').find('tr').hasClass('hover-bg')) &#123; //循环遍历，每行加入tr标签，每个单元格加td标签 for (let i = 0; i &lt; dataArr.length; i++) &#123; str += '&lt;tr&gt;'; for (let item in dataArr[i]) &#123; //增加\t为了不让表格显示科学计数法或者其他格式 str += `&lt;td&gt;$&#123; dataArr[i][item] + '\t'&#125;&lt;/td&gt;`; &#125; str += '&lt;/tr&gt;'; &#125; var template = `&lt;html xmlns:o="urn:schemas-microsoft-com:office:office" xmlns:x="urn:schemas-microsoft-com:office:excel" xmlns="http://www.w3.org/TR/REC-html40"&gt; &lt;head&gt;&lt;!--[if gte mso 9]&gt;&lt;xml&gt;&lt;x:ExcelWorkbook&gt;&lt;x:ExcelWorksheets&gt;&lt;x:ExcelWorksheet&gt; &lt;x:Name&gt;'录入列表.xls'&lt;/x:Name&gt; &lt;x:WorksheetOptions&gt;&lt;x:DisplayGridlines/&gt;&lt;/x:WorksheetOptions&gt;&lt;/x:ExcelWorksheet&gt; &lt;/x:ExcelWorksheets&gt;&lt;/x:ExcelWorkbook&gt;&lt;/xml&gt;&lt;![endif]--&gt; &lt;/head&gt;&lt;body&gt;&lt;table&gt;$&#123;str&#125;&lt;/table&gt;&lt;/body&gt;&lt;/html&gt;`; // 实例化一个Blob对象，其构造函数的第一个参数是包含文件内容的数组，第二个参数是包含文件类型属性的对象 var blob = new Blob([template], &#123;type: "application/vnd.ms-excel"&#125;); $('.download').attr('href', URL.createObjectURL(blob)); &#125;&#125;]]></content>
@@ -25,19 +38,6 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[开发小总结]]></title>
-    <url>%2Flittle-tips.html</url>
-    <content type="text"><![CDATA[通过js动态添加的dom元素无法直接绑定事件，需要通过 123$('#父级节点').on('click', '绑定事件元素', function() &#123;&#125;) $(this)无法在ajax中直接使用，解决：将$(this)赋值给一变量 12345678910$('#button').on('click', function() &#123; var _this = $(this); $.ajax(&#123; type: 'get', url: '........', data: &#123; userId: _this.attr('id'); &#125; &#125;)&#125;) 通过使用.one()方法使事件只触发一次]]></content>
-      <categories>
-        <category>JavaScript</category>
-        <category>经验总结</category>
-      </categories>
-      <tags>
-        <tag>JavaScript</tag>
-        <tag>经验总结</tag>
-      </tags>
-  </entry>
-  <entry>
     <title><![CDATA[jQuery插件开发--Tab]]></title>
     <url>%2Fjquery-plugin-tab.html</url>
     <content type="text"><![CDATA[打造自己的插件库 人工参数配置12345678$(function() &#123; $('.jq-tab').tabPlugin(&#123; //人工参数 type: 'click', effect: 'dd', auto: 1000 &#125;)&#125;) 默认参数12345this.default = &#123; type: 'click', effect: 'default', auto: false&#125; tab插件，包含三个参数可配置：触发方式，效果，是否自动播放12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152535455565758596061626364656667686970717273747576777879808182&lt;script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"&gt;&lt;/script&gt; &lt;script&gt; $(function() &#123; $('.jq-tab').tabPlugin(&#123; //人工参数 type: 'click', effect: 'dd', auto: 1000 &#125;) &#125;) ;(function($, window, document) &#123; function Tab(opts) &#123; //默认参数 this.default = &#123; type: 'click', effect: 'default', auto: false &#125; //合并参数 this.opt = $.extend(true, &#123;&#125;, this.default, opts); this.lis = $('.nav').find('li'); this.content = $('.content').find('li'); this.num = 0; &#125; Tab.prototype = &#123; init() &#123; this.clickTab(); this.autoPlay(); &#125;, clickTab() &#123; var $this = this; if(this.opt.type == 'mouseover') &#123; this.lis.on(this.opt.type, function() &#123; $this.tabType($(this)); $this.tabEffect($(this).index()); &#125;) &#125; else &#123; this.lis.on('click', function() &#123; $this.tabType($(this)); $this.tabEffect($(this).index()); &#125;) &#125; &#125;, tabType(cur) &#123; var onIndex = cur.index(); cur.addClass('on').siblings().removeClass('on'); this.num = onIndex; &#125;, tabEffect(ind) &#123; if(this.opt.effect == 'fade') &#123; this.content.eq(ind).fadeIn().siblings().fadeOut(); &#125; else &#123; this.content.eq(ind).addClass('active').siblings().removeClass('active'); &#125; &#125;, //自动播放 autoPlay() &#123; var $this = this; var lis = this.lis; //防止刚开始在第一个停留2s的问题 this.num = 1; //部位false的情况下 if(this.opt.auto) &#123; setInterval(function() &#123; if($this.num &gt;= lis.length) &#123; $this.num = 0; &#125; $this.tabType(lis.eq($this.num)); $this.tabEffect($this.num); $this.num++; &#125;,this.opt.auto) &#125; &#125; &#125; $.fn.tabPlugin = function(options) &#123; //创建实例 var tab = new Tab(options); return tab.init(); &#125; &#125;)(jQuery, window, document) &lt;/script&gt;]]></content>
@@ -51,17 +51,6 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[phpMyAdmin中导出的sql文件导入到navicat中所需注意点]]></title>
-    <url>%2Fmysql-navicat.html</url>
-    <content type="text"><![CDATA[好吧，这是最近在做php时碰到的问题，记录一下 这是从phpMyAdmin中导出的sql文件格式：123456CREATE TABLE IF NOT EXISTS `article` ( `id` int(11) NOT NULL AUTO_INCREMENT, `title` varchar(150) NOT NULL, `addtime` int(10) NOT NULL, PRIMARY KEY (`id`)) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=96 ; 这是从navicat中导出的sql文件格式：12345678910DROP TABLE IF EXISTS `chat`;CREATE TABLE `chat` ( `userid` int(10) unsigned NOT NULL AUTO_INCREMENT, `nickname` varchar(20) NOT NULL, `username` varchar(10) NOT NULL, `password` varchar(32) NOT NULL, `profile` varchar(100) NOT NULL, `systime` int(10) NOT NULL, PRIMARY KEY (`userid`)) ENGINE=MyISAM AUTO_INCREMENT=87 DEFAULT CHARSET=utf8; 既然把sql文件导入到navicat中，就肯定是按照navicat的sql文件格式来书写：1234567DROP TABLE IF EXISTS article;CREATE TABLE article ( `id` int(11) NOT NULL AUTO_INCREMENT, `title` varchar(150) NOT NULL, `addtime` int(10) NOT NULL, PRIMARY KEY (`id`)) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=96 ; 注意：导入sql文件，表名是不需要带反引号的，要去掉]]></content>
-      <categories>
-        <category>mysql</category>
-      </categories>
-      <tags>
-        <tag>mysql</tag>
-      </tags>
-  </entry>
-  <entry>
     <title><![CDATA[vscode设置php.validate.executablePath]]></title>
     <url>%2Fvscode-setting.html</url>
     <content type="text"><![CDATA[问题： 做php开发时提示：无法使用PHP可执行的设置，设置php.validate。executablePath配置PHP可执行文件 解决：一：打开vscode设置，找到php.validate.executablePath 二：找到php.exe路径，将php.validate.executablePath值设置成该路径即可]]></content>
@@ -70,6 +59,17 @@
       </categories>
       <tags>
         <tag>VScode</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[phpMyAdmin中导出的sql文件导入到navicat中所需注意点]]></title>
+    <url>%2Fmysql-navicat.html</url>
+    <content type="text"><![CDATA[好吧，这是最近在做php时碰到的问题，记录一下 这是从phpMyAdmin中导出的sql文件格式：123456CREATE TABLE IF NOT EXISTS `article` ( `id` int(11) NOT NULL AUTO_INCREMENT, `title` varchar(150) NOT NULL, `addtime` int(10) NOT NULL, PRIMARY KEY (`id`)) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=96 ; 这是从navicat中导出的sql文件格式：12345678910DROP TABLE IF EXISTS `chat`;CREATE TABLE `chat` ( `userid` int(10) unsigned NOT NULL AUTO_INCREMENT, `nickname` varchar(20) NOT NULL, `username` varchar(10) NOT NULL, `password` varchar(32) NOT NULL, `profile` varchar(100) NOT NULL, `systime` int(10) NOT NULL, PRIMARY KEY (`userid`)) ENGINE=MyISAM AUTO_INCREMENT=87 DEFAULT CHARSET=utf8; 既然把sql文件导入到navicat中，就肯定是按照navicat的sql文件格式来书写：1234567DROP TABLE IF EXISTS article;CREATE TABLE article ( `id` int(11) NOT NULL AUTO_INCREMENT, `title` varchar(150) NOT NULL, `addtime` int(10) NOT NULL, PRIMARY KEY (`id`)) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=96 ; 注意：导入sql文件，表名是不需要带反引号的，要去掉]]></content>
+      <categories>
+        <category>mysql</category>
+      </categories>
+      <tags>
+        <tag>mysql</tag>
       </tags>
   </entry>
   <entry>

@@ -89,7 +89,7 @@
 <meta property="og:site_name" content="Yucihent&#39;s Blog">
 <meta property="og:description" content="通过js动态添加的dom元素无法直接绑定事件，需要通过  123$(&apos;#父级节点&apos;).on(&apos;click&apos;, &apos;绑定事件元素&apos;, function() &amp;#123;&amp;#125;)  $(this)无法在ajax中直接使用，解决：将$(this)赋值给一变量  12345678910$(&apos;#button&apos;).on(&apos;click&apos;, function() &amp;#123;	var _this = $(t">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-07-22T07:20:36.580Z">
+<meta property="og:updated_time" content="2018-08-25T14:42:52.643Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="开发小总结">
 <meta name="twitter:description" content="通过js动态添加的dom元素无法直接绑定事件，需要通过  123$(&apos;#父级节点&apos;).on(&apos;click&apos;, &apos;绑定事件元素&apos;, function() &amp;#123;&amp;#125;)  $(this)无法在ajax中直接使用，解决：将$(this)赋值给一变量  12345678910$(&apos;#button&apos;).on(&apos;click&apos;, function() &amp;#123;	var _this = $(t">
@@ -338,8 +338,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-05-30T00:00:00+08:00">
-                2018-05-30
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-08-25T00:00:00+08:00">
+                2018-08-25
               </time>
             
 
@@ -431,6 +431,12 @@
 <blockquote>
 <p>通过使用.one()方法使事件只触发一次</p>
 </blockquote>
+<blockquote>
+<p>使用eslint时对于使用了new关键词的代码需要加上    <code>/* eslint-disable no-new */</code></p>
+</blockquote>
+<blockquote>
+<p>swiper3和swiper4用法上稍有不同<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">swiperOption: &#123;</span><br><span class="line">    <span class="comment">// Swiper3使用</span></span><br><span class="line">    <span class="comment">// pagination: '.swiper-pagination'</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">// Swiper4</span></span><br><span class="line">    pagination: &#123;</span><br><span class="line">        el: <span class="string">'.swiper-pagination'</span></span><br><span class="line">    &#125;,</span><br><span class="line">    loop: <span class="literal">true</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+</blockquote>
 
       
     </div>
@@ -481,8 +487,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/jquery-plugin-tab.html" rel="next" title="jQuery插件开发--Tab">
-                <i class="fa fa-chevron-left"></i> jQuery插件开发--Tab
+              <a href="/js-export-excel.html" rel="next" title="JS导出Excel文件">
+                <i class="fa fa-chevron-left"></i> JS导出Excel文件
               </a>
             
           </div>
@@ -490,10 +496,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/dataTables-ajax.html" rel="prev" title="dataTables--ajax 分页基本使用">
-                dataTables--ajax 分页基本使用 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
