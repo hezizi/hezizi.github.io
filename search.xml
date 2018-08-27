@@ -1,6 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[atom使用小技巧]]></title>
+    <url>%2Fatom-tips.html</url>
+    <content type="text"><![CDATA[vscode内存泄漏的问题，不得已放弃，转而使用atom，用了之后才发现atom真的太好用了下载地址：atom 在这说一下atom的一些小玩意 tips 安装插件点击 File – Settings – Install 搜索想要安装的插件进行安装即可 自定义代码段相比于vscode，我更喜欢atom自定义代码段风格，更加方便 vscode自定义代码段 atom自定义代码段，以vue为例我们在安装vue插件时，点击插件settings，我们会看到Scope 点击 File – Snippets 将text.html.vue复制进来 text.html.vue前面需要加上一个小点 prefix 代表我们自定义代码段的关键词body 代表我们自定义的代码段，当有多行时需要前后各三个单引号进行包裹 &#39;&#39;&#39; 自定义编辑器风格点击 File – Stylesheetatom很有趣的一点是整个编辑器是一个HTML，我们可以通过css来改变其样式windows系统通过 ctrl + shift + I 打开控制台 这样我们就可以通过控制台找到找到类名来自定义样式了 atom这三个小技巧还是挺不错的，以后发现更多继续补充]]></content>
+      <categories>
+        <category>atom</category>
+      </categories>
+      <tags>
+        <tag>atom</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[开发小总结]]></title>
     <url>%2Flittle-tips.html</url>
     <content type="text"><![CDATA[通过js动态添加的dom元素无法直接绑定事件，需要通过 123$('#父级节点').on('click', '绑定事件元素', function() &#123;&#125;) $(this)无法在ajax中直接使用，解决：将$(this)赋值给一变量 12345678910$('#button').on('click', function() &#123; var _this = $(this); $.ajax(&#123; type: 'get', url: '........', data: &#123; userId: _this.attr('id'); &#125; &#125;)&#125;) 通过使用.one()方法使事件只触发一次 使用eslint时对于使用了new关键字的代码需要加上 /* eslint-disable no-new */ 12345678/* eslint-disable no-new */new Vue(&#123; el: '#app', router, store, components: &#123; App &#125;, template: '&lt;App/&gt;'&#125;) swiper3和swiper4用法上稍有不同 12345678910swiperOption: &#123; // Swiper3使用 // pagination: '.swiper-pagination' // Swiper4 pagination: &#123; el: '.swiper-pagination' &#125;, loop: true&#125;]]></content>
