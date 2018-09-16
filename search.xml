@@ -1,6 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[Js内置对象Array常用方法]]></title>
+    <url>%2Furl-ip.html</url>
+    <content type="text"><![CDATA[面试中经常会问的一个问题，先简述，后面会仔细描述每一步骤 输入网址，敲回车 浏览器通过输入的URL，构建HTTP请求报文 浏览器发起DNS解析，将域名转换为IP地址 浏览器将请求报文发送给服务器 服务器接收到请求报文并进行解析 服务器处理用户请求，将处理结果封装成HTTP响应报文 服务器将响应报文发送给浏览器 浏览器接受服务器发送的HTTP响应报文，并解析 浏览器渲染引擎解析HTML生成DOM树，CSS规则树，生成渲染树，进行layout，最后绘制 解析HTML时遇到新的资源需要再次发起请求 最终浏览器呈现页面]]></content>
+      <categories>
+        <category>JavaScript</category>
+        <category>经验总结</category>
+      </categories>
+      <tags>
+        <tag>JavaScript</tag>
+        <tag>经验总结</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[atom使用小技巧]]></title>
     <url>%2Fatom-tips.html</url>
     <content type="text"><![CDATA[vscode内存泄漏的问题，不得已放弃，转而使用atom，用了之后才发现atom真的太好用了下载地址：atom 在这说一下atom的一些小玩意 tips 安装插件点击 File – Settings – Install 搜索想要安装的插件进行安装即可 自定义代码段相比于vscode，我更喜欢atom自定义代码段风格，更加方便 vscode自定义代码段 atom自定义代码段，以vue为例我们在安装vue插件时，点击插件settings，我们会看到Scope 点击 File – Snippets 将text.html.vue复制进来 text.html.vue前面需要加上一个小点 prefix 代表我们自定义代码段的关键词body 代表我们自定义的代码段，当有多行时需要前后各三个单引号进行包裹 &#39;&#39;&#39; 自定义编辑器风格点击 File – Stylesheetatom很有趣的一点是整个编辑器是一个HTML，我们可以通过css来改变其样式windows系统通过 ctrl + shift + I 打开控制台 这样我们就可以通过控制台找到找到类名来自定义样式了 atom这三个小技巧还是挺不错的，以后发现更多继续补充]]></content>
@@ -62,17 +75,6 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[phpMyAdmin中导出的sql文件导入到navicat中所需注意点]]></title>
-    <url>%2Fmysql-navicat.html</url>
-    <content type="text"><![CDATA[好吧，这是最近在做php时碰到的问题，记录一下 这是从phpMyAdmin中导出的sql文件格式：123456CREATE TABLE IF NOT EXISTS `article` ( `id` int(11) NOT NULL AUTO_INCREMENT, `title` varchar(150) NOT NULL, `addtime` int(10) NOT NULL, PRIMARY KEY (`id`)) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=96 ; 这是从navicat中导出的sql文件格式：12345678910DROP TABLE IF EXISTS `chat`;CREATE TABLE `chat` ( `userid` int(10) unsigned NOT NULL AUTO_INCREMENT, `nickname` varchar(20) NOT NULL, `username` varchar(10) NOT NULL, `password` varchar(32) NOT NULL, `profile` varchar(100) NOT NULL, `systime` int(10) NOT NULL, PRIMARY KEY (`userid`)) ENGINE=MyISAM AUTO_INCREMENT=87 DEFAULT CHARSET=utf8; 既然把sql文件导入到navicat中，就肯定是按照navicat的sql文件格式来书写：1234567DROP TABLE IF EXISTS article;CREATE TABLE article ( `id` int(11) NOT NULL AUTO_INCREMENT, `title` varchar(150) NOT NULL, `addtime` int(10) NOT NULL, PRIMARY KEY (`id`)) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=96 ; 注意：导入sql文件，表名是不需要带反引号的，要去掉]]></content>
-      <categories>
-        <category>mysql</category>
-      </categories>
-      <tags>
-        <tag>mysql</tag>
-      </tags>
-  </entry>
-  <entry>
     <title><![CDATA[vscode设置php.validate.executablePath]]></title>
     <url>%2Fvscode-setting.html</url>
     <content type="text"><![CDATA[问题： 做php开发时提示：无法使用PHP可执行的设置，设置php.validate。executablePath配置PHP可执行文件 解决：一：打开vscode设置，找到php.validate.executablePath 二：找到php.exe路径，将php.validate.executablePath值设置成该路径即可]]></content>
@@ -81,6 +83,17 @@
       </categories>
       <tags>
         <tag>VScode</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[phpMyAdmin中导出的sql文件导入到navicat中所需注意点]]></title>
+    <url>%2Fmysql-navicat.html</url>
+    <content type="text"><![CDATA[好吧，这是最近在做php时碰到的问题，记录一下 这是从phpMyAdmin中导出的sql文件格式：123456CREATE TABLE IF NOT EXISTS `article` ( `id` int(11) NOT NULL AUTO_INCREMENT, `title` varchar(150) NOT NULL, `addtime` int(10) NOT NULL, PRIMARY KEY (`id`)) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=96 ; 这是从navicat中导出的sql文件格式：12345678910DROP TABLE IF EXISTS `chat`;CREATE TABLE `chat` ( `userid` int(10) unsigned NOT NULL AUTO_INCREMENT, `nickname` varchar(20) NOT NULL, `username` varchar(10) NOT NULL, `password` varchar(32) NOT NULL, `profile` varchar(100) NOT NULL, `systime` int(10) NOT NULL, PRIMARY KEY (`userid`)) ENGINE=MyISAM AUTO_INCREMENT=87 DEFAULT CHARSET=utf8; 既然把sql文件导入到navicat中，就肯定是按照navicat的sql文件格式来书写：1234567DROP TABLE IF EXISTS article;CREATE TABLE article ( `id` int(11) NOT NULL AUTO_INCREMENT, `title` varchar(150) NOT NULL, `addtime` int(10) NOT NULL, PRIMARY KEY (`id`)) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=96 ; 注意：导入sql文件，表名是不需要带反引号的，要去掉]]></content>
+      <categories>
+        <category>mysql</category>
+      </categories>
+      <tags>
+        <tag>mysql</tag>
       </tags>
   </entry>
   <entry>
