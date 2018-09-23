@@ -1,6 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[nodejs搭建一个简单服务器]]></title>
+    <url>%2Fnode-http-server.html</url>
+    <content type="text"><![CDATA[nodejs文档 创建一个简单的http服务器： 加载http模块 创建http服务对象 监听用户请求事件 设置监听端口 新建一个demo.js文件 加载http模块 1const http = require('http'); 创建http服务对象 http.createServer()方法创建http服务对象 1const server = http.createServer(); 监听用户请求事件并设置监听端口 response.write(chunk[, encoding][, callback])通过res.write()方法发送响应体，可多次调用有三个参数，第一个参数必传，必须为字符串或buffer,不能为数组，对象等第二，三个参数选传，分别为编码格式，默认为utf8，另外是回调 必须调用res.end()方法告诉服务器响应完毕，可结束响应12345678server.on('request', (req, res) =&gt; &#123; // 设置请求头 res.setHeader('Content-Type', 'text/plain; charset=utf-8'); res.write('hello node'); res.end();&#125;).listen(8888, () =&gt; &#123; console.log('服务已经启动');&#125;) 进一步优化代码：12345678const http = require('http');http.createServer((req, res) =&gt; &#123; // 设置请求头 res.setHeader('Content-Type', 'text/plain; charset=utf-8'); res.end('hello node');&#125;).listen(8888, () =&gt; &#123; console.log('服务已经启动');&#125;) 到此一个最简单的http服务器就搭建完成，命令行运行node demo，在浏览器中输入localhost:8888就可以看到hello node。]]></content>
+      <categories>
+        <category>nodejs</category>
+      </categories>
+      <tags>
+        <tag>nodejs</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[输入网址到页面呈现过程]]></title>
     <url>%2Furl-ip.html</url>
     <content type="text"><![CDATA[面试中经常会问的一个问题，先简述，后面会仔细描述每一步骤 输入网址，敲回车 浏览器通过输入的URL，构建HTTP请求报文 浏览器发起DNS解析，将域名转换为IP地址 浏览器将请求报文发送给服务器 服务器接收到请求报文并进行解析 服务器处理用户请求，将处理结果封装成HTTP响应报文 服务器将响应报文发送给浏览器 浏览器接受服务器发送的HTTP响应报文，并解析 浏览器渲染引擎解析HTML生成DOM树，CSS规则树，生成渲染树，进行layout，最后绘制 解析HTML时遇到新的资源需要再次发起请求 最终浏览器呈现页面]]></content>
@@ -75,17 +86,6 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[vscode设置php.validate.executablePath]]></title>
-    <url>%2Fvscode-setting.html</url>
-    <content type="text"><![CDATA[问题： 做php开发时提示：无法使用PHP可执行的设置，设置php.validate。executablePath配置PHP可执行文件 解决：一：打开vscode设置，找到php.validate.executablePath 二：找到php.exe路径，将php.validate.executablePath值设置成该路径即可]]></content>
-      <categories>
-        <category>VScode</category>
-      </categories>
-      <tags>
-        <tag>VScode</tag>
-      </tags>
-  </entry>
-  <entry>
     <title><![CDATA[phpMyAdmin中导出的sql文件导入到navicat中所需注意点]]></title>
     <url>%2Fmysql-navicat.html</url>
     <content type="text"><![CDATA[好吧，这是最近在做php时碰到的问题，记录一下 这是从phpMyAdmin中导出的sql文件格式：123456CREATE TABLE IF NOT EXISTS `article` ( `id` int(11) NOT NULL AUTO_INCREMENT, `title` varchar(150) NOT NULL, `addtime` int(10) NOT NULL, PRIMARY KEY (`id`)) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=96 ; 这是从navicat中导出的sql文件格式：12345678910DROP TABLE IF EXISTS `chat`;CREATE TABLE `chat` ( `userid` int(10) unsigned NOT NULL AUTO_INCREMENT, `nickname` varchar(20) NOT NULL, `username` varchar(10) NOT NULL, `password` varchar(32) NOT NULL, `profile` varchar(100) NOT NULL, `systime` int(10) NOT NULL, PRIMARY KEY (`userid`)) ENGINE=MyISAM AUTO_INCREMENT=87 DEFAULT CHARSET=utf8; 既然把sql文件导入到navicat中，就肯定是按照navicat的sql文件格式来书写：1234567DROP TABLE IF EXISTS article;CREATE TABLE article ( `id` int(11) NOT NULL AUTO_INCREMENT, `title` varchar(150) NOT NULL, `addtime` int(10) NOT NULL, PRIMARY KEY (`id`)) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=96 ; 注意：导入sql文件，表名是不需要带反引号的，要去掉]]></content>
@@ -94,6 +94,17 @@
       </categories>
       <tags>
         <tag>mysql</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[vscode设置php.validate.executablePath]]></title>
+    <url>%2Fvscode-setting.html</url>
+    <content type="text"><![CDATA[问题： 做php开发时提示：无法使用PHP可执行的设置，设置php.validate。executablePath配置PHP可执行文件 解决：一：打开vscode设置，找到php.validate.executablePath 二：找到php.exe路径，将php.validate.executablePath值设置成该路径即可]]></content>
+      <categories>
+        <category>VScode</category>
+      </categories>
+      <tags>
+        <tag>VScode</tag>
       </tags>
   </entry>
   <entry>
