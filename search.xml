@@ -1,6 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[我的生活 -- 给未来的自己]]></title>
+    <url>%2Fmy-life.html</url>
+    <content type="text"><![CDATA[自己创造自己想要的生活 – 给未来的赫赫 寻思了很久，感觉还是需要写篇文章来约束自己，记录在我的博客中。算不上鸡汤，希望看到这篇文章的朋友们能以此共勉，也希望自己能时刻坚守时间：2018.09.24地点：武汉市江夏区藏龙岛]]></content>
+      <categories>
+        <category>我的生活</category>
+      </categories>
+      <tags>
+        <tag>我的生活</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[nodejs搭建一个简单服务器]]></title>
     <url>%2Fnode-http-server.html</url>
     <content type="text"><![CDATA[nodejs文档 创建一个简单的http服务器： 加载http模块 创建http服务对象 监听用户请求事件 设置监听端口 新建一个demo.js文件 加载http模块 1const http = require('http'); 创建http服务对象 http.createServer()方法创建http服务对象 1const server = http.createServer(); 监听用户请求事件并设置监听端口 response.write(chunk[, encoding][, callback]) 通过res.write()方法发送响应体，可多次调用有三个参数，第一个参数必传，必须为字符串或buffer,不能为数组，对象等第二，三个参数选传，分别为编码格式，默认为utf8，另外是回调 必须调用res.end()方法告诉服务器响应完毕，可结束响应 12345678server.on('request', (req, res) =&gt; &#123; // 设置请求头 res.setHeader('Content-Type', 'text/plain; charset=utf-8'); res.write('hello node'); res.end();&#125;).listen(8888, () =&gt; &#123; console.log('服务已经启动');&#125;) 进一步优化代码：12345678const http = require('http');http.createServer((req, res) =&gt; &#123; // 设置请求头 res.setHeader('Content-Type', 'text/plain; charset=utf-8'); res.end('hello node');&#125;).listen(8888, () =&gt; &#123; console.log('服务已经启动');&#125;) 到此一个最简单的http服务器就搭建完成，命令行运行node demo，在浏览器中输入localhost:8888就可以看到hello node。]]></content>
