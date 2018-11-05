@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yucihent.top/"/>
-  <updated>2018-09-23T12:08:48.441Z</updated>
+  <updated>2018-11-05T09:53:24.179Z</updated>
   <id>http://yucihent.top/</id>
   
   <author>
@@ -15,6 +15,30 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>windows下MongoDB的安装和启动服务</title>
+    <link href="http://yucihent.top/mongodb-install.html"/>
+    <id>http://yucihent.top/mongodb-install.html</id>
+    <published>2018-11-05T09:30:43.000Z</published>
+    <updated>2018-11-05T09:53:24.179Z</updated>
+    
+    <content type="html"><![CDATA[<blockquote><p>mongodb下载地址：<a href="https://www.mongodb.com/download-center/community" target="_blank" rel="noopener">mongodb</a></p></blockquote><a id="more"></a><h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><p>下载后直接点击next，可以点击custom选项自定义安装目录，我的安装目录是在<code>F:\mongoDB</code></p><p>目录结构：<br><img src="https://img-blog.csdnimg.cn/20181105151246180.PNG" alt="在这里插入图片描述"></p><blockquote><p>安装完成时没有<code>data</code>和<code>mongod.cfg</code>，这是后续需要自己新建</p></blockquote><h3 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h3><p>在安装的根目录下(跟bin同级)新建文件夹<code>data</code>，在<code>data</code>文件夹下新建<code>db</code>文件夹用作为数据库目录<br>我的目录：<code>F:\mongoDB\data\db</code></p><p>进入bin目录下<code>F:\mongoDB\bin</code>打开<code>cmd</code>输入<code>mongod --dbpath F:\mongoDB\data\db</code>，<br>在数据库目录<code>db</code>下启动mongodb服务</p><p>启动成功后在浏览器中输入<code>http://localhost:27017/</code>默认端口号(27017)<br><img src="https://img-blog.csdnimg.cn/20181105153910244.PNG" alt="在这里插入图片描述"><br>表明服务启动成功</p><blockquote><p>如果不想只在<code>F:\mongoDB\bin</code>下启动服务，需要配置环境变量，<br><code>我的电脑</code> - <code>属性</code> - <code>高级系统设置</code> - <code>环境变量</code> 中用户变量<code>path</code>新建环境变量<code>F:\mongoDB\bin</code>，<br>这样我们可以在任何目录下输入<code>mongod --dbpath F:\mongoDB\data\db</code>启动服务</p></blockquote><h4 id="将MongoDB设置为系统服务"><a href="#将MongoDB设置为系统服务" class="headerlink" title="将MongoDB设置为系统服务"></a>将MongoDB设置为系统服务</h4><p>之前我们都是通过<code>mongod --dbpath F:\mongoDB\data\db</code>启动服务，我们将MongoDB设置为系统服务，这样就可以不需要每次都手动启动</p><ul><li>在<code>F:\mongoDB\data</code>下创建一个<code>log</code>文件夹</li><li><p>在<code>F:\mongoDB</code>目录下(bin同级)，git bash新建一个<code>mongod.cfg</code>文件，输入</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">systemLog:</span><br><span class="line">    destination: file</span><br><span class="line">    path: F:\mongoDB\data\log\mongod.log</span><br><span class="line">storage:</span><br><span class="line">    dbPath: F:\mongoDB\data\db</span><br></pre></td></tr></table></figure></li><li><p>以管理员的身份打开命令行窗口，右键管理员身份运行</p></li><li>输入<code>sc.exe create MongoDB binPath= &quot;\&quot;F:\mongoDB\bin\mongod.exe\&quot; --service --config=\&quot;F:\mongoDB\mongod.cfg\&quot;&quot; DisplayName= &quot;MongoDB&quot; start= &quot;auto&quot;</code><br><img src="https://img-blog.csdnimg.cn/20181105160745907.PNG" alt="在这里插入图片描述"><blockquote><p>如果看到<code>CreateService SUCCESS</code>则表明创建成功，<strong>此时因为我已经创建了服务，所有显示失败</strong></p></blockquote></li></ul><p>此时我们进入任务管理器，打开服务，我们会看到mongodb服务，右键启动，设置为自动，这样每次开机都会自动启动mongodb服务<br>通过<code>net stop MongoDB</code>关闭服务，<code>net start MongoDB</code>开启服务<br><img src="https://img-blog.csdnimg.cn/20181105162233282.PNG?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3l1Y2loZW50,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p><blockquote><p>这样我们mongodb服务就启动成功</p></blockquote>]]></content>
+    
+    <summary type="html">
+    
+      &lt;blockquote&gt;
+&lt;p&gt;mongodb下载地址：&lt;a href=&quot;https://www.mongodb.com/download-center/community&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;mongodb&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+    
+    </summary>
+    
+      <category term="MongoDB" scheme="http://yucihent.top/categories/MongoDB/"/>
+    
+    
+      <category term="MongoDB" scheme="http://yucihent.top/tags/MongoDB/"/>
+    
+  </entry>
   
   <entry>
     <title>nodejs搭建一个简单服务器</title>
